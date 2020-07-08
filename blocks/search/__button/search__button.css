@@ -1,0 +1,9 @@
+.search__button {
+    background-color: #2F71E5;
+    height: 64px;
+    border: 0;    
+    color: white;
+    width: 168px;
+    position: absolute;
+    right: 0;    
+}

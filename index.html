@@ -1,19 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Diploma work of the Yandex.Praktikum">
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/normalize.css">
-    <title>news-explorer</title>
-    <description>Diploma work of the Yandex.Praktikum</description>
+    <title>News-Explorer</title>    
 </head>
-<body>
-    <section class="search">
-        <div class="header">
+<body class="page">
+    <section class="main">
+        <header class="header">            
+            <p class="header__site-name">NewsExplorer</p>
+            <ul class="header__menu">
+                <li class="menu__text">Главная</li>
+                <li class="menu__text">Сохраненные статьи</li>
+            </ul>          
+            <button class="header__button button">Авторизоваться</button>
+        </header>
 
+        <div class="search">
+            <h1 class="search__title">Что в мире творится?</h1>
+            <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
+            <div class="search__form">
+                <input class="search__input" placeholder="Введите тему новости">
+                <button class="search__button button">Искать</button>
+            </div>
         </div>
     </section>
+
+    <section class="about">
+        <img class="about__image" src="./images/image-03.png">
+        <div class="about__description">
+            <h2 class="about__title">Об авторе</h2>
+            <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+            <p class="about__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="footer__copyright">&copy 2020 Supersite, Powered by News API</p>
+        <div class="footer__menu">
+            <a class="footer__text">Главная</a>
+            <a class="footer__text">Яндекс.Практикум</a>
+        </div>
+        <div class="footer__social">
+            <img class="footer__icon" src="./images/icon/Vector.png">
+            <img class="footer__icon" src="./images/social/Vector.png">
+        </div>
+    </footer>
 </body>
 </html>

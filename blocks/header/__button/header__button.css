@@ -1,0 +1,8 @@
+@import url("../../button/button.css");
+
+.header__button {
+    width: 176px;
+    height: 48px;
+    background-color: transparent;
+    color: white;
+}

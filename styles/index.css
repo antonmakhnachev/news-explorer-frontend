@@ -1,2 +1,16 @@
-@import url('../fonts/fonts.css');
+@import url("../fonts/fonts.css");
+@import url("../blocks/main/main.css");
+@import url("../blocks/header/header.css");
+@import url("../blocks/search/search.css");
+@import url("../blocks/about/about.css");
+@import url("../blocks/footer/footer.css");
 
+
+
+
+
+.page {
+    max-width: 1440px;
+
+    border: 1px red solid;
+}
