@@ -1,0 +1,17 @@
+@import url("./__card/news__card.css");
+@import url("./__date/news__date.css");
+@import url("./__img/news__img.css");
+@import url("./__source/news__source.css");
+@import url("./__text/news__text.css");
+@import url("./__title/news__title.css");
+
+.news {
+    /* display: flex;
+    justify-content: space-between; */
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    justify-content: space-between;
+    margin: 64px 104px 0 104px;
+    
+    border: 1px red solid;
+}

@@ -1,5 +1,5 @@
 @font-face {
-    src: url('./inter-regular.woff');
+    src: url('./inter-regular.woff')format('woff');
     font-family: 'Inter';
     font-style: normal;
     font-weight: normal;
@@ -20,20 +20,20 @@
 }
 
 @font-face {
-    src: url('./sourcesanspro-regular.woff');
-    font-family: 'Source';
+    src: url('./sourcesanspro-regular.woff')format('woff');
+    font-family: "Source Sans Pro";
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
-    src: url('./roboto-black.woff');
+    src: url('./roboto-black.woff')format('woff');
     font-family: 'Roboto';
     font-weight: bold
 }
 
 @font-face {
-    src: url('./roboto-medium.woff');
+    src: url('./roboto-medium.woff')format('woff');
     font-family: 'Roboto';
     font-weight: medium;
 }

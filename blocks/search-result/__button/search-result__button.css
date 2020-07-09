@@ -1,0 +1,16 @@
+.search-result__button {
+    display: block;
+    width: 288px;
+    height: 64px;
+    border-radius: 100px;
+    margin: 88px auto 80px auto;
+    background-color: #ffffff;
+    font-size: 18px;
+    line-height: 24px;
+    border: none;
+
+}
+
+.search-result__button:hover {
+    opacity: 0.9;
+}

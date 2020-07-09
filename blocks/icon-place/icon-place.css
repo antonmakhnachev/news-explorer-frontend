@@ -1,0 +1,12 @@
+.icon-place {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 24px;
+    right: 24px;    
+}
