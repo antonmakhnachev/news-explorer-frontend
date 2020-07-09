@@ -1,7 +1,10 @@
 @import url("./__copyright/footer__copyright.css");
 @import url("./__menu/footer_menu.css");
+@import url("./__social/footer__social.css");
 
 .footer{
     display: flex;
+
+    border: 1px red solid;
     
 }

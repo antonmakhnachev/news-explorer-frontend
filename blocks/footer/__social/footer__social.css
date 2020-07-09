@@ -1,0 +1,10 @@
+@import url("./__icon/footer__icon.css");
+
+.footer__social {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    margin-right: 100px;
+
+    border: 1px red solid;
+}

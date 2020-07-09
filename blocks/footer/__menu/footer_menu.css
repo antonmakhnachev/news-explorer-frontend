@@ -1,1 +1,8 @@
 @import url("./__text/footer__text.css");
+
+.footer__menu {
+    display: flex;
+    border: 1px red solid;
+    margin-left: auto;
+    align-items: center;
+}
