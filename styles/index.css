@@ -12,6 +12,9 @@
 .page {
     max-width: 1440px;
     margin: auto;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
 
     border: 1px red solid;
 }

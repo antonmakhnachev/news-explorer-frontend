@@ -1,35 +1,39 @@
 @font-face {
-    src: url('./fonts/inter-regular.woff');
+    src: url('./inter-regular.woff');
     font-family: 'Inter';
     font-style: normal;
+    font-weight: normal;
 }
 
 @font-face {
-    src: url('./fonts/roboto-regular.woff');
+    src: url("./roboto-regular.woff")format('woff');
     font-family: 'Roboto';
     font-style: normal;
+    font-weight: normal;
 }
 
 @font-face {
-    src: url("./fonts/robotoslab-regular.woff")format('woff');
+    src: url("./robotoslab-regular.woff")format('woff');
     font-family: "Roboto Slab";
     font-style: normal;
+    font-weight: normal;
 }
 
 @font-face {
-    src: url('./fonts/sourcesanspro-regular.woff');
+    src: url('./sourcesanspro-regular.woff');
     font-family: 'Source';
     font-style: normal;
+    font-weight: normal;
 }
 
 @font-face {
-    src: url('./fonts/roboto-black.woff');
+    src: url('./roboto-black.woff');
     font-family: 'Roboto';
     font-weight: bold
 }
 
 @font-face {
-    src: url('./fonts/roboto-medium.woff');
+    src: url('./roboto-medium.woff');
     font-family: 'Roboto';
     font-weight: medium;
 }
