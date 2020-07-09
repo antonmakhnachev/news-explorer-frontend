@@ -3,8 +3,5 @@
 @import url("./__social/footer__social.css");
 
 .footer{
-    display: flex;
-
-    border: 1px red solid;
-    
+    display: flex;    
 }

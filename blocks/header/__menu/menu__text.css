@@ -9,3 +9,7 @@
 .menu__text:hover {
     text-decoration: underline;
 }
+
+.menu__hiden {
+    display: none;
+}
