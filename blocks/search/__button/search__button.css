@@ -1,11 +1,12 @@
 .search__button {
-    background-color: #2F71E5;
+    background-color: #2f71e5;
     height: 64px;
     border: 0;    
     color: white;
     width: 168px;
     position: absolute;
-    right: 0;    
+    right: 0;
+    bottom: 0;    
 }
 
 
