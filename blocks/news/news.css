@@ -4,14 +4,15 @@
 @import url("./__source/news__source.css");
 @import url("./__text/news__text.css");
 @import url("./__title/news__title.css");
+@import url("./__group-name/news__group-name.css");
+@import url("./__group-text/news__group-text.css");
+@import url("./__del/news__del.css");
+@import url("./__favor/news__favor.css");
 
-.news {
-    /* display: flex;
-    justify-content: space-between; */
+.news {    
     display: grid;
     grid-template-columns: repeat(3, 400px);
     justify-content: space-between;
     margin: 64px 104px 0 104px;
-    
-    border: 1px red solid;
+    padding-bottom: 60px;    
 }

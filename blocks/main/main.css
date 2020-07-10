@@ -4,10 +4,7 @@
     align-items: center;
     color: white;    
     background-image: url(../../images/georgia-de-lotz.png);   
-    background-size: cover;
-    
-
-    border: 1px red solid;
+    background-size: cover;    
 }
 
 .main.white-theme {

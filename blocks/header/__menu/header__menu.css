@@ -5,7 +5,5 @@
     flex-direction: row;
     list-style-type: none;
     margin: 0 34px;    
-    margin-left: auto;
-
-    border: 1px red solid;
+    margin-left: auto;    
 }

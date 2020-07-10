@@ -6,7 +6,6 @@
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/search-result/search-result.css");
 @import url("../blocks/news/news.css");
-@import url("../blocks/icon-place/icon-place.css");
 @import url("../blocks/popup/popup.css");
 @import url("../blocks/form/form.css");
 
@@ -20,7 +19,5 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
-    position: relative;
-
-    /* border: 1px red solid; */
+    position: relative;    
 }

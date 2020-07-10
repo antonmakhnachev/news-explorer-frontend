@@ -10,4 +10,7 @@
 
 .header__button.white-theme {
     color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
