@@ -1,0 +1,14 @@
+.form__button {
+    display: block;
+    margin: 39px 36px 0 36px;
+    width: 358px;
+    height: 64px;
+    border-radius: 100px;
+    border: none;
+    background-color: #E6E8EB;
+    cursor: pointer;
+}
+
+.form__button_disabled {
+    color: #B6BCBF;
+}

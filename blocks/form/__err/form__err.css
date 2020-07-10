@@ -1,0 +1,7 @@
+.form__err {
+    font-family: 'Inter';
+    font-size: 11px;
+    line-height: 15px;
+    color: red;
+    margin: 0 0 0 36px;    
+}
