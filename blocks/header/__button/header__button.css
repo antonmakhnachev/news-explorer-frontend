@@ -7,3 +7,7 @@
     color: white;
     margin-right: 104px;
 }
+
+.header__button.white-theme {
+    color: #000000;
+}

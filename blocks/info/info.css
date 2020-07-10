@@ -1,0 +1,10 @@
+@import url("./__text/info__text.css");
+@import url("./__keyword/info__keyword.css");
+@import url("./__title/info__title.css");
+
+.info {
+    margin: 40px 0 0 104px;
+    width: 530px;
+
+    border: 1px red solid;
+}

@@ -6,8 +6,10 @@
 .header {
     display: flex;
     align-items: center;
-    padding: 0 104px 0 104px;
+    /* padding: 0 104px 0 104px; */
     font-family: 'Roboto Slab';
     box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
-    width: 100%;    
+    width: 100%;
+
+    border: 1px blue solid;
 }

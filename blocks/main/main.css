@@ -9,3 +9,13 @@
 
     border: 1px red solid;
 }
+
+.main.white-theme {
+    background-color: #ffffff;
+    color: #000000;
+    background-image: none;
+}
+
+.main.page-account {
+    display: block;
+}

@@ -13,3 +13,7 @@
 .menu__hiden {
     display: none;
 }
+
+.menu__text.white-theme {
+    color: #000000;
+}
