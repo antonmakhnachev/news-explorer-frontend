@@ -1,9 +1,9 @@
 @import url("./__title/search-result__title.css");
 @import url("./__button/search-result__button.css");
+@import url("./_is-opened/search-result_is-opened.css");
 
 .search-result {
     background-color: #F5F6F7;
-    /* margin-top: 0; */
-
-    border: 1px red solid;
+    border: 1px red solid;    
+    display: none;
 }
