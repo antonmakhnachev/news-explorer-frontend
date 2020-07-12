@@ -9,3 +9,10 @@
         font-size: 18px;        
     }
 }
+
+@media screen and (max-width: 425px) {
+    .search__subtitle {
+        font-size: 18px;
+        margin-top: 16px;       
+    }
+}

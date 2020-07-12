@@ -29,3 +29,10 @@
         margin: 32px 40px 0 40px;
     }
 }
+
+@media screen and (max-width: 425px) {
+    .news {
+        grid-template-columns: repeat(1, 288px);
+        margin: 24px auto 0 auto;
+    }
+}

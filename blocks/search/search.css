@@ -17,3 +17,11 @@
         width: 448px;
     }
 }
+
+@media screen and (max-width: 425px) {
+    .search {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+}

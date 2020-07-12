@@ -18,3 +18,10 @@
         border: 0;
     }
 }
+
+@media screen and (max-width: 425px) {
+    .search__input {
+        width: 288px;
+        
+    }
+}

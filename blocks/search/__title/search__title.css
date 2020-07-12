@@ -13,3 +13,10 @@
         line-height: 40px;
     }
 }
+
+@media screen and (max-width: 425px) {
+    .search__title {
+        font-size: 36px;
+        line-height: 40px;
+    }
+}

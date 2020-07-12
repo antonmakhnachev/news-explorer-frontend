@@ -5,7 +5,7 @@
     color: white;    
     background-image: url(../../images/georgia-de-lotz.png);   
     background-size: cover;
-    max-width: 1440px;    
+    /* max-width: 1440px;     */
 }
 
 .main.white-theme {
@@ -16,4 +16,12 @@
 
 .main.page-account {
     display: block;
+}
+
+@media screen and (max-width: 425px) {
+    .main {
+        width: 426px;
+        background-size: cover;
+        background-position: center;
+    }
 }

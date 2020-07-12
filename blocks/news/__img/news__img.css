@@ -6,6 +6,13 @@
 
 @media screen and (max-width: 768px) {
     .news__img {
-        width: 224px;
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+    .news__img {
+        width: 100%;
     }
 }

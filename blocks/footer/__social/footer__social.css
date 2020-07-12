@@ -4,12 +4,23 @@
     display: flex;
     align-items: center;
     margin-left: 40px;
-    margin-right: 100px;   
+    margin-right: 100px;    
 }
 
 @media screen and (max-width: 768px) {
     .footer__social {
         margin-right: 40px;
         margin-left: 25px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .footer__social {
+        grid-area: social;
+        grid-column-start: 2;
+        grid-column-end: 2;
+        margin: 20px 16px 0 20px;
+        display: flex;
+        justify-content: flex-end;
     }
 }
