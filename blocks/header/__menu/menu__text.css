@@ -17,3 +17,9 @@
 .menu__text.white-theme {
     color: #000000;
 }
+
+@media screen and (max-width: 768px) {
+    .menu__text {
+        font-size: 16px;
+    }
+}

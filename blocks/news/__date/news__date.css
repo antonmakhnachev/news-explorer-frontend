@@ -5,3 +5,9 @@
     color: #B6BCBF;
     margin: 20px 0 0 24px;
 }
+
+@media screen and (max-width: 768px) {
+    .news__date {
+        
+    }
+}

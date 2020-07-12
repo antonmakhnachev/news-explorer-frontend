@@ -4,3 +4,9 @@
     line-height: 30px;
     margin: 12px 0 0 24px;
 }
+
+@media screen and (max-width: 768px) {
+    .news__title {
+        font-size: 22px;
+    }
+}

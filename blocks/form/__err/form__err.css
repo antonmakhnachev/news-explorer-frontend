@@ -1,7 +1,12 @@
 .form__err {
     font-family: 'Inter';
-    font-size: 11px;
+    font-size: 12px;
     line-height: 15px;
     color: red;
-    margin: 0 0 0 36px;    
+    margin: 0 0 13px 36px;    
+}
+
+.form__err-reg {
+    margin: 39px 0 0 0;
+    text-align: center;
 }

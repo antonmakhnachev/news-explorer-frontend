@@ -10,3 +10,10 @@
     top: 24px;
     right: 24px;    
 }
+
+@media screen and (max-width: 768px) {
+    .news__favor {
+        top: 8px;
+        right: 8px;
+    }
+}

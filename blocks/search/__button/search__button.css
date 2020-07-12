@@ -13,3 +13,10 @@
 .search__button:hover {
     background-color: #347EFF;
 }
+
+@media screen and (max-width: 768px) {
+    .search__button {
+        width: 160px;
+        height: 56px;
+    }
+}

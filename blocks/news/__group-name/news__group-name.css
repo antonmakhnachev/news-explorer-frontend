@@ -10,3 +10,10 @@
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (max-width: 768px) {
+    .news__group-name {
+        top: 8px;
+        left: 8px;
+    }
+}

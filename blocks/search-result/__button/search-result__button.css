@@ -14,3 +14,11 @@
 .search-result__button:hover {
     opacity: 0.9;
 }
+
+@media screen and (max-width: 768px) {
+    .search-result__button {
+        width: 240px;
+        height: 56px;
+        margin: 22px auto 40px auto;
+    }
+}
