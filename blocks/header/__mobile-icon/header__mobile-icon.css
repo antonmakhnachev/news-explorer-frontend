@@ -1,5 +1,17 @@
-@media screen and (max-width: 425px) {
+.header__mobile-icon {
+    display: none;
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
     .header__mobile-icon {
-        margin-right: 16px;
+        grid-area: mi;
+        grid-column-start: 2;
+        grid-column-end: 2;
+        display: block;
+        margin: 0 16px 0 16px;
+        justify-self: self-end;
+        
+        border: 1px red solid;
     }
 }

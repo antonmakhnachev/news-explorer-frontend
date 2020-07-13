@@ -4,12 +4,20 @@
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    margin: 0 34px;    
-    margin-left: auto;    
+    /* margin: 0 34px;     */
+    /* margin-left: auto; */
+    
+    border: 1px blue solid;
 }
 
-@media screen and (max-width: 425px) {
+
+
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
     .header__menu {
-        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-self: start;
+        margin-left: 16px;
     }
 }

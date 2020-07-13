@@ -1,5 +1,6 @@
 .saved-news {
+    width: 100%;
     background-color: #F5F6F7;
-    margin-top: 64px;    
+    /* margin-top: 64px;     */
     border: 1px  solid transparent;
 }

@@ -9,19 +9,22 @@
     flex-direction: column;
     align-items: left; 
     width: 608px;
-    margin-top: 80px;    
+    margin-top: 80px;
+    
+    border: 1px red solid;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
     .search {
         width: 448px;
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
     .search {
         align-items: center;
         justify-content: center;
         width: 100%;
+        margin-top: 30px;
     }
 }

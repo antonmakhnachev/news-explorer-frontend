@@ -5,7 +5,8 @@
     height: 48px;
     background-color: transparent;
     color: white;
-    margin-right: 104px;
+    margin-left: 32px;
+    
 }
 
 .header__button.white-theme {
@@ -15,17 +16,10 @@
     justify-content: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
     .header__button {
-        margin-right: 40px;
-        width: 152px;
-        height: 40px;
-        font-size: 16px;
+        width: calc(100% - 32px);
+        margin: 0 0 24px 16px;
     }
 }
 
-@media screen and (max-width: 425px) {
-    .header__button {
-        display: none;
-    }
-}
