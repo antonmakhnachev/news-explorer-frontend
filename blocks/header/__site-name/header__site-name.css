@@ -3,9 +3,13 @@
     font-family: "Roboto Slab";
     font-size: 20px;
     line-height: 24px;    
-    margin-left: 104px;
-    border: 1px red solid;
+    margin-left: 104px;    
+    color: #ffffff;
+    text-decoration: none;
+}
 
+.header__site-name.white-theme {
+    color: #000000;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {

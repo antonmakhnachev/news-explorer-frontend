@@ -10,8 +10,6 @@
         grid-column-end: 2;
         display: block;
         margin: 0 16px 0 16px;
-        justify-self: self-end;
-        
-        border: 1px red solid;
+        justify-self: self-end;        
     }
 }

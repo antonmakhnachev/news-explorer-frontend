@@ -1,9 +1,7 @@
 .header__menu-mobile {
     display: flex;
     align-items: center;
-    margin-right: 104px;
-
-    border: 1px green solid;
+    margin-right: 104px;    
 }
 
 

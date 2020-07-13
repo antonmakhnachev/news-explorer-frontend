@@ -15,9 +15,7 @@
     grid-column-gap: 16px;
     grid-row-gap: 16px;    
     margin: 64px 104px 0 104px;
-    padding-bottom: 60px;    
-
-    border: 1px red solid;
+    padding-bottom: 60px;        
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1439px) {

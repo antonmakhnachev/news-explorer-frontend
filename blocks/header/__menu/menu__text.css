@@ -4,14 +4,15 @@
     line-height: 24px;
     text-decoration: none;
     color: #ffffff;
+    display: none;
 }
 
 .menu__text:hover {
     text-decoration: underline;
 }
 
-.menu__hidden {
-    display: none;
+.menu__text.menu_is-opened {
+    display: inline;
 }
 
 .menu__text.white-theme {

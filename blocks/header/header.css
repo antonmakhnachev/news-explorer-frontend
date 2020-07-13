@@ -12,9 +12,7 @@
     justify-content: space-between;    
     font-family: 'Roboto Slab';
     box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
-    width: 100%;
-    
-    border: 1px red solid;
+    width: 100%;    
 }
 
 .header.white-theme {
@@ -26,14 +24,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .header.header_opened-menu {
-        position: relative;
-        /* display: grid;
-        
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: .5fr 1fr;
-        grid-template-areas:
-            "sn mi"
-            "mm mm"; */
+        position: relative;       
         justify-content: space-between;
         align-items: center;
         background-color: #1A1B22;

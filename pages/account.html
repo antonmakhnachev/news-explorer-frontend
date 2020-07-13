@@ -11,15 +11,18 @@
 </head>
 <body class="page">
     <section class="main page-account white-theme">
-        <header class="header white-theme">            
-            <p class="header__site-name">NewsExplorer</p>
-            <img class="header__mobile-icon" src="../images/icon/menu_mobile.png">
-            <ul class="header__menu">
-                <li><a href="" class="menu__text white-theme">Главная</a></li>
-                <li><a href="" class="menu__text menu__hiden white-theme">Сохраненные статьи</a></li>
-            </ul>          
-            <button class="header__button button white-theme"><p>Грета</p><img src="../images/icon/logout.png"></button>
+        <header class="header white-theme ">            
+            <a href="./index.html" class="header__site-name white-theme">NewsExplorer</a>
+            <img class="header__mobile-icon" src="../images/icon/menu_open_white_theme.png">
+            <div class="header__menu-mobile ">                
+                <div class="header__menu">
+                    <a href="./index.html" class="menu__text white-theme menu_is-opened">Главная</a>
+                    <a href="./pages/account.html" class="menu__text white-theme menu_is-opened">Сохраненные статьи</a>
+                </div>         
+                <button class="header__button button white-theme">Авторизоваться</button>
+            </div>
         </header>
+
         <div class="info">
             <p class="info__text">Сохранённые статьи</p>
             <h2 class="info__title">Грета, у вас 5 сохранённых статей</h2>
@@ -112,12 +115,12 @@
     <footer class="footer">
         <p class="footer__copyright">&copy 2020 Supersite, Powered by News API</p>
         <div class="footer__menu">
-            <a href="" class="footer__text">Главная</a>
-            <a href="" class="footer__text">Яндекс.Практикум</a>
+            <a href="./index.html" class="footer__text">Главная</a>
+            <a href="https://praktikum.yandex.ru/" class="footer__text">Яндекс.Практикум</a>
         </div>
         <div class="footer__social">
-            <img class="footer__icon" src="../images/icon/Vector.png">
-            <img class="footer__icon" src="../images/social/Vector.png">
+            <a href="https://github.com/antonmakhnachev"><img class="footer__icon" src="../images/icon/Vector.png"></a>
+            <a href="https://www.facebook.com/"><img class="footer__icon" src="../images/social/Vector.png"></a>
         </div>
     </footer>
 </body>
