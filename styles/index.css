@@ -1,3 +1,4 @@
+@import url("./normalize.css");
 @import url("../fonts/fonts.css");
 @import url("../blocks/main/main.css");
 @import url("../blocks/header/header.css");
@@ -9,6 +10,11 @@
 @import url("../blocks/popup/popup.css");
 @import url("../blocks/form/form.css");
 @import url("../blocks/preloader/preloader.css");
+
+
+@import url("./index.css");
+@import url("../blocks/info/info.css");
+@import url("../blocks/saved-news/saved-news.css");
 
 
 

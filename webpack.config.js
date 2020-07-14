@@ -19,19 +19,27 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use:  [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'] // добавили минификацию CSS
+        use:  [MiniCssExtractPlugin.loader, 'style-loader!css-loader', 'postcss-loader']
       }
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ // 
-      filename: 'style.[contenthash].css',
-    }),
+    new MiniCssExtractPlugin({
+      filename: './styles/index.[contenthash].css',
+    }),    
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: false,      
       template: './src/index.html',
       filename: 'index.html'
     }),
+    new HtmlWebpackPlugin({
+      inject: false,      
+      template: './src/account.html',
+      filename: 'account.html'
+    }),
     new WebpackMd5Hash()
-  ]
+  ],
+  resolve: {
+    extensions: ['.js', '.css']
+  }
 };

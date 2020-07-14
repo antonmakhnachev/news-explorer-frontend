@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Diploma work of the Yandex.Praktikum">
-    <link rel="stylesheet" href="../styles/index.css">
-    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">    
     <title>News-Explorer</title>    
 </head>
 <body class="page">
@@ -175,5 +174,7 @@
             <a href="https://www.facebook.com/"><img class="footer__icon" src="../images/social/Vector.png"></a>
         </div>
     </footer>
+
+    <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   "description": "Открыть меню на 320\r элементу с классом header добавить класс header_opened-menu\r элементу с классом header__menu-mobile добавить класс menu-mobile_is-opened",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && webpack --mode production", 
+    "build": "rimraf dist && webpack --mode production",
     "dev": "webpack-dev-server --mode development --open --watch",
     "deploy": "gh-pages -d dist"
   },
