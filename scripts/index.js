@@ -1,7 +1,7 @@
 // import '../pages/index.css';
 
-import {Popup} from './popup';
-import {FormValidator} from './form_validator';
+import {Popup} from './popup.js';
+import {FormValidator} from './form_validator.js';
 
 
 console.log('dfdfd');
