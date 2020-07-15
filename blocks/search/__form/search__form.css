@@ -1,7 +1,11 @@
 .search__form{
+    width: 100%;
     position: relative;    
     margin-top: 64px;
-    margin-bottom: 80px;    
+    margin-bottom: 80px;
+    box-sizing: border-box;
+    
+    border: 1px red solid;
 }
 
 @media screen and (max-width: 425px) {

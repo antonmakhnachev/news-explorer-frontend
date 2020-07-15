@@ -3,13 +3,16 @@
 @import url("./__form/search__form.css");
 @import url("./__input/search__input.css");
 @import url("./__button/search__button.css");
+@import url("./__err/search__err.css");
 
 .search {
     display: flex;
     flex-direction: column;
     align-items: left; 
     width: 608px;
-    margin-top: 80px;    
+    margin-top: 80px;
+
+    border: 1px blue solid;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {

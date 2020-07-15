@@ -26,10 +26,19 @@
         <div class="search">
             <h1 class="search__title">Что в мире творится?</h1>
             <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
-            <div class="search__form">
+            
+            <form class="search__form" name="form_search">
+                <input id="keyword" class="search__input" placeholder="Введите тему новости">
+                <button id="button_search" type class="search__button button">Искать</button>
+                <p class="search__err">Нужно ввести ключевое слово</p>
+            </form>
+            
+            
+            <!-- <div class="search__form">
                 <input class="search__input" placeholder="Введите тему новости">
-                <button class="search__button button">Искать</button>
-            </div>
+                <button id="button_search" type class="search__button button">Искать</button>
+                <p class="search__err">Нужно ввести ключевое слово</p>
+            </div> -->
         </div>
     </section>
 
