@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Diploma work of the Yandex.Praktikum">
-    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">    
+    <link rel="stylesheet" href="./pages/index.css">    
+    <!-- <%=htmlWebpackPlugin.files.chunks.main.css%> -->
     <title>News-Explorer</title>    
 </head>
 <body class="page">
@@ -18,7 +19,7 @@
                     <a href="./index.html" class="menu__text menu_is-opened">Главная</a>
                     <a href="../pages/account.html" class="menu__text menu_is-opened">Сохраненные статьи</a>
                 </div>         
-                <button class="header__button button">Авторизоваться</button>
+                <button class="header__button button" id="button_auth">Авторизоваться</button>
             </div>
         </header>
 
@@ -42,8 +43,8 @@
         <h2 class="search-result__title">Результаты поиска</h2>
         <div class="news">
 
-            <div class="news__card">                
-                <img class="news__img" src="../images/card/image_08.png">
+            <!-- <div class="news__card">                
+                <img class="news__img" src="<%=require('../images/card/image_08.png')%>">
                 <div class="news__favor">
                     <img class="news__favor-icon" src="../images/icon/bookmark.png">
                 </div>
@@ -51,40 +52,11 @@
                 <h3 class="news__title">Национальное достояние – парки</h3>
                 <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
                 <p class="news__source">Лента.ру</p>
-            </div>
+            </div> -->
 
-            <div class="news__card">                
-                <img class="news__img" src="../images/card/image_08.png">
-                <div class="news__favor">
-                    <img class="news__favor-icon" src="../images/icon/bookmark.png">
-                </div>
-                <p class="news__date">2 августа, 2019</p>
-                <h3 class="news__title">Национальное достояние – парки</h3>
-                <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                <p class="news__source">Лента.ру</p>
-            </div>
+            
 
-            <div class="news__card">                
-                <img class="news__img" src="../images/card/image_08.png">
-                <div class="news__favor">
-                    <img class="news__favor-icon" src="../images/icon/bookmark.png">
-                </div>
-                <p class="news__date">2 августа, 2019</p>
-                <h3 class="news__title">Национальное достояние – парки</h3>
-                <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                <p class="news__source">Лента.ру</p>
-            </div>
-
-            <div class="news__card">                
-                <img class="news__img" src="../images/card/image_08.png">
-                <div class="news__favor">
-                    <img class="news__favor-icon" src="../images/icon/bookmark.png">
-                </div>
-                <p class="news__date">2 августа, 2019</p>
-                <h3 class="news__title">Национальное достояние – парки</h3>
-                <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                <p class="news__source">Лента.ру</p>
-            </div>
+            
 
             
 
@@ -112,32 +84,32 @@
 
 
     <!-- Форма авторизации -->
-    <div class="popup">
+    <div class="popup" id="popup_form_auth">
         <div class="popup__content">
             <img src="../images/icon/close.png" alt="" class="popup__close">
-            <form class="form">
+            <form class="form" name="form_auth">
                 <h2 class="form__title">Вход</h2>
 
                 <p class="form__input-name">Email</p>
-                <input type="text"class="form__input" placeholder="Введите почту" minlength="2" required>
-                <p class="form__err">Сообщение об ошибке</p>
+                <input id="auth_email" type="text"class="form__input" placeholder="Введите почту" minlength="2" required>
+                <p class="form__err" id="auth_email_err">Сообщение об ошибке</p>
 
                 <p class="form__input-name">Пароль</p>
-                <input type="password" class="form__input" placeholder="Введите пароль" minlength="8" required>
-                <p class="form__err">Сообщение об ошибке</p>
+                <input id="auth_pass" type="password" class="form__input" placeholder="Введите пароль" minlength="8" required>
+                <p class="form__err" id="auth_pass_err">Сообщение об ошибке</p>
 
                 <button class="form__button form__button_disabled" disabled>Войти</button>
-                <p class="form__text">или <a href="" class="form__link">Зарегистрироваться</a></p>
+                <p class="form__text">или <span class="form__link" id="link_open_reg">Зарегистрироваться</span></p>
             </form>
         </div>
     </div>
 
 
     <!-- Форма регистрации -->
-    <div class="popup">
+    <div class="popup" id="popup_form_reg">
         <div class="popup__content">
             <img src="../images/icon/close.png" alt="" class="popup__close">
-            <form class="form">
+            <form class="form" name="form_reg">
                 <h2 class="form__title">Регистрация</h2>
 
                 <p class="form__input-name">Email</p>
@@ -155,7 +127,7 @@
                 <p class="form__err form__err-reg">Такой пользователь уже есть</p>
                 <button class="form__button form__button_disabled" disabled>Зарегистрироваться</button>
                 
-                <p class="form__text">или <a href="" class="form__link">Войти</a></p>
+                <p class="form__text">или <span class="form__link" id="link_open_auth">Войти</span></p>
             </form>
         </div>
     </div>
@@ -175,6 +147,7 @@
         </div>
     </footer>
 
-    <script src="<%= htmlWebpackPlugin.files.js %>"></script>
+    <script type="module" src="./scripts/index.js"></script>
+    <!-- <%= htmlWebpackPlugin.files.js %> -->
 </body>
 </html>
