@@ -1,3 +1,5 @@
+@import url("./is-active/form__button_is-active.css");
+
 .form__button {
     display: block;
     margin: 0 36px 0 36px;
@@ -6,7 +8,12 @@
     border-radius: 100px;
     border: none;
     background-color: #E6E8EB;
-    cursor: pointer;
+    
+    color: #B6BCBF;    
+}
+
+form__button:hover {
+    cursor: default;
 }
 
 .form__button_disabled {

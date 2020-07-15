@@ -1,4 +1,5 @@
 // import '../pages/index.css';
+// 97fdf652ccdc4129b402ac0e0ac15072
 
 import {Popup} from './popup.js';
 import {FormValidator} from './form_validator.js';
@@ -31,6 +32,7 @@ console.log('dfdfd');
         const errMessagesList = document.querySelectorAll('.form__err');      
         popup.control(formAuth.closest('.popup'));
         popup.clearErrMessages(errMessagesList);
+        // formAuth.reset();
     });
 
     // переход между формами по ссылке
@@ -40,6 +42,8 @@ console.log('dfdfd');
             popup.control(formAuth.closest('.popup'));
             popup.control(formReg.closest('.popup'));
             popup.clearErrMessages(errMessagesList);
+            // formAuth.reset();
+            // formReg.reset();
 
 
         })
@@ -48,7 +52,10 @@ console.log('dfdfd');
     // закрытие формы
     buttonClose.forEach((button) => {
         button.addEventListener('click', (event) => {
+            // formAuth.reset();
+            // formReg.reset();
             popup.control(event.target.closest('.popup'));
+            
         });
     });
 
@@ -56,9 +63,9 @@ console.log('dfdfd');
 
 
 
-    // for (const form of forms) {
-    //     formValidator.setEventListener(form);
-    // };
+    for (const form of forms) {
+        formValidator.setEventListener(form);
+    };
 
 
 

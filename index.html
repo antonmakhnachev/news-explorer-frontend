@@ -91,14 +91,14 @@
                 <h2 class="form__title">Вход</h2>
 
                 <p class="form__input-name">Email</p>
-                <input id="auth_email" type="text"class="form__input" placeholder="Введите почту" minlength="2" required>
+                <input id="auth_email" type="email" class="form__input" placeholder="Введите почту" minlength="2" required>
                 <p class="form__err" id="auth_email_err">Сообщение об ошибке</p>
 
                 <p class="form__input-name">Пароль</p>
                 <input id="auth_pass" type="password" class="form__input" placeholder="Введите пароль" minlength="8" required>
                 <p class="form__err" id="auth_pass_err">Сообщение об ошибке</p>
 
-                <button class="form__button form__button_disabled" disabled>Войти</button>
+                <button type class="form__button" name="button_submit" disabled>Войти</button>
                 <p class="form__text">или <span class="form__link" id="link_open_reg">Зарегистрироваться</span></p>
             </form>
         </div>
@@ -113,19 +113,19 @@
                 <h2 class="form__title">Регистрация</h2>
 
                 <p class="form__input-name">Email</p>
-                <input type="text"class="form__input" placeholder="Введите почту" minlength="2" required>
-                <p class="form__err">Сообщение об ошибке</p>
+                <input id="reg_email" type="email" class="form__input" placeholder="Введите почту" minlength="2" required>
+                <p id="reg_email_err" class="form__err">Сообщение об ошибке</p>
 
                 <p class="form__input-name">Пароль</p>
-                <input type="password" class="form__input" placeholder="Введите пароль" minlength="8" required>
-                <p class="form__err">Сообщение об ошибке</p>
+                <input id="reg_pass" type="password" class="form__input" placeholder="Введите пароль" minlength="8" required>
+                <p id="reg_pass_err" class="form__err">Сообщение об ошибке</p>
 
                 <p class="form__input-name">Имя</p>
-                <input type="password" class="form__input" placeholder="Введите своё имя" minlength="2" required>
-                <p class="form__err">Сообщение об ошибке</p>
+                <input id="reg_name" type="text" class="form__input" placeholder="Введите своё имя" minlength="2" required>
+                <p id="reg_name_err" class="form__err">Сообщение об ошибке</p>
                 
                 <p class="form__err form__err-reg">Такой пользователь уже есть</p>
-                <button class="form__button form__button_disabled" disabled>Зарегистрироваться</button>
+                <button type class="form__button" name="button_submit" disabled>Зарегистрироваться</button>
                 
                 <p class="form__text">или <span class="form__link" id="link_open_auth">Войти</span></p>
             </form>
