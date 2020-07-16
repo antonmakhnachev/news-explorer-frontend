@@ -1,7 +1,9 @@
+@import url("./_is-opened/news__card_is-opened.css");
+
 .news__card {
-    position: relative;
-    /* width: 400px; */
+    position: relative;    
     border-radius: 20px;
     margin-bottom: 16px;
-    background-color: #ffffff;    
+    background-color: #ffffff;
+    display: none;    
 }

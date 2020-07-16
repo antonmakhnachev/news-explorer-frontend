@@ -3,7 +3,7 @@
     width: 288px;
     height: 64px;
     border-radius: 100px;
-    margin: 88px auto 80px auto;
+    margin: 60px auto 80px auto;
     background-color: #ffffff;
     font-size: 18px;
     line-height: 24px;
@@ -13,6 +13,11 @@
 
 .search-result__button:hover {
     opacity: 0.9;
+    cursor: pointer;
+}
+
+.search-result__button:focus {
+    outline: none;
 }
 
 @media screen and (max-width: 768px) {

@@ -19,7 +19,7 @@
                     <a href="./index.html" class="menu__text menu_is-opened">Главная</a>
                     <a href="../pages/account.html" class="menu__text menu_is-opened">Сохраненные статьи</a>
                 </div>         
-                <button class="header__button button" id="button_auth">Авторизоваться</button>
+                <button class="header__button button" id="button_auth" name="button_submit" disabled>Авторизоваться</button>
             </div>
         </header>
 
@@ -29,30 +29,22 @@
             
             <form class="search__form" name="form_search">
                 <input id="keyword" class="search__input" placeholder="Введите тему новости">
-                <button id="button_search" type class="search__button button">Искать</button>
-                <p class="search__err">Нужно ввести ключевое слово</p>
-            </form>
+                <button id="button_search" type class="search__button button" name="button_submit">Искать</button>
+                <p id="keyword_err" class="search__err"></p>
+            </form>           
             
-            
-            <!-- <div class="search__form">
-                <input class="search__input" placeholder="Введите тему новости">
-                <button id="button_search" type class="search__button button">Искать</button>
-                <p class="search__err">Нужно ввести ключевое слово</p>
-            </div> -->
         </div>
     </section>
 
     <div class="preloader">
         <i class="circle-preloader"></i>
-    </div>
+    </div>    
 
-    
-
-    <section class="search-result search-result_is-opened">
+    <section class="search-result">
         <h2 class="search-result__title">Результаты поиска</h2>
         <div class="news">
 
-            <div class="news__card">                
+            <!-- <div class="news__card">                
                 <img class="news__img" src="../images/card/cardImg.png">
                 <div class="news__favor">
                     <img class="news__favor-icon" src="../images/icon/bookmark.png">
@@ -60,27 +52,12 @@
                 <p class="news__date">2 августа, 2019</p>
                 <h3 class="news__title">Национальное достояние – парки</h3>
                 <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                <p class="news__source">Лента.ру</p>
-            </div>
-
-            
-
-            
-
-            
-
-            
+                <a class="news__source">Лента.ру</a>
+            </div>           -->
 
         </div>
-
-        <button class="search-result__button">Показать еще</button>
-
+        <button type class="search-result__button">Показать еще</button>
     </section>
-
-
-
-
-
 
     <section class="about">
         <img class="about__image" src="../images/image-03.png">
@@ -90,7 +67,6 @@
             <p class="about__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
         </div>
     </section>
-
 
     <!-- Форма авторизации -->
     <div class="popup" id="popup_form_auth">
@@ -112,7 +88,6 @@
             </form>
         </div>
     </div>
-
 
     <!-- Форма регистрации -->
     <div class="popup" id="popup_form_reg">
@@ -140,9 +115,6 @@
             </form>
         </div>
     </div>
-
-
-
 
     <footer class="footer">
         <p class="footer__copyright">&copy 2020 Supersite, Powered by News API</p>

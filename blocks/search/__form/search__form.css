@@ -3,9 +3,8 @@
     position: relative;    
     margin-top: 64px;
     margin-bottom: 80px;
-    box-sizing: border-box;
-    
-    border: 1px red solid;
+    box-sizing: border-box; 
+      
 }
 
 @media screen and (max-width: 425px) {

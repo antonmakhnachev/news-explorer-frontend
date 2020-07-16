@@ -12,7 +12,9 @@
     width: 608px;
     margin-top: 80px;
 
-    border: 1px blue solid;
+    
+
+    
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
