@@ -13,7 +13,6 @@ console.log('dfdfd');
 
 
 (function(){
-    
     const page = document.querySelector('.page');
     const newsPlace = document.querySelector('.news');
 
@@ -25,7 +24,7 @@ console.log('dfdfd');
 
     const isDev = 'development';
     const serverNews = isDev === 'development' ? 'https://newsapi.org/v2/everything?' : 'https://praktikum.tk/news/v2/everything?';
-    const server = isDev === 'development' ? 'localhost:3000/' : 'localhost:3000/';
+    const server = isDev === 'development' ? 'http://localhost:3000' : 'https://api.newsexplorer.gq';
     const apiKey = '97fdf652ccdc4129b402ac0e0ac15072';
     
 
@@ -39,11 +38,14 @@ console.log('dfdfd');
         from: new Date().getDate() - 7,
         to: new Date(),
         pageSize: 100
-    })
+    });
 
     const apiMyServer = new ApiMyServer({
-        baseUrl: server
-    })
+        baseUrl: server,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
 
     const buttonAuth = document.getElementById('button_auth');
     const buttonClose = document.querySelectorAll('.popup__close');
@@ -116,7 +118,7 @@ console.log('dfdfd');
             })
             .catch(err => {
                 console.log(err)
-            })
+            });
     })
 
 
@@ -126,7 +128,26 @@ console.log('dfdfd');
     })
 
     formReg.addEventListener('submit', () => {
-        event.preventDefault;
+        event.preventDefault();
+
+        const userData = {
+            email: formReg.elements.reg_email.value,
+            password: formReg.elements.reg_pass.value,
+            name: formReg.elements.reg_name.value
+        };
+
+        //console.log(userData)
+
+        apiMyServer.createUser(userData)
+            .then((res) => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            });
+
+
+
     })
     
 

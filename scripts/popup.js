@@ -1,11 +1,9 @@
 export class Popup {
-    
+
     control(popupName) {
         this.clearInput(popupName);
         this.resetButtonState(popupName);
         popupName.classList.toggle('popup_is-opened');
-        
-        
     };
 
     clearErrMessages(errMessagesList) {
@@ -31,8 +29,4 @@ export class Popup {
             button.classList.remove('form__button_is-active');
         }
     }
-
-
-
-
 };
