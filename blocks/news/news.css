@@ -9,12 +9,15 @@
 @import url("./__del/news__del.css");
 @import url("./__favor/news__favor.css");
 
-.news {    
+.news {
+    width: calc(100% - 208px);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 16px;
     grid-row-gap: 16px;    
-    margin: 64px 104px 0 104px;    
+    margin: 64px 104px 0 104px;
+    
+    border: 1px red solid;
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
@@ -25,8 +28,10 @@
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .news {
+        width: calc(100% - 80px);
         grid-template-columns: repeat(3, 1fr);
         margin: 32px 40px 0 40px;
+
     }
 }
 

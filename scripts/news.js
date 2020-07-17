@@ -37,6 +37,8 @@ export class News {
         newsTitle.textContent = news.title;
         newsText.textContent = news.description;
         newsSource.textContent = news.source.name;
+        newsSource.href = news.url;
+        newsSource.target = '_blank';
 
         return newsCard;
     }

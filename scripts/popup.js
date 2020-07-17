@@ -1,4 +1,5 @@
 export class Popup {
+    
     control(popupName) {
         this.clearInput(popupName);
         this.resetButtonState(popupName);

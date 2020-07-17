@@ -4,6 +4,7 @@
 import {Popup} from './popup.js';
 import {FormValidator} from './formvalidator.js';
 import {ApiGetNews} from './apigetnews.js';
+import {ApiMyServer} from './apimyserver.js';
 import {News} from './news.js';
 import {NewsList} from './newslist.js';
 
@@ -24,6 +25,7 @@ console.log('dfdfd');
 
     const isDev = 'development';
     const serverNews = isDev === 'development' ? 'https://newsapi.org/v2/everything?' : 'https://praktikum.tk/news/v2/everything?';
+    const server = isDev === 'development' ? 'localhost:3000/' : 'localhost:3000/';
     const apiKey = '97fdf652ccdc4129b402ac0e0ac15072';
     
 
@@ -37,6 +39,10 @@ console.log('dfdfd');
         from: new Date().getDate() - 7,
         to: new Date(),
         pageSize: 100
+    })
+
+    const apiMyServer = new ApiMyServer({
+        baseUrl: server
     })
 
     const buttonAuth = document.getElementById('button_auth');
@@ -117,6 +123,10 @@ console.log('dfdfd');
 
     searchResultButton.addEventListener('click', () => {
         newsList.showMoreNews();
+    })
+
+    formReg.addEventListener('submit', () => {
+        event.preventDefault;
     })
     
 
