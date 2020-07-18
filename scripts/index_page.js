@@ -1,4 +1,4 @@
-import '../pages/index.css';
+// import '../pages/index.css';
 
 
 import {Popup} from './popup.js';
@@ -12,7 +12,7 @@ import {NewsList} from './newslist.js';
 console.log('dfdfd');
 
 
-(function(){
+(function (){
     const page = document.querySelector('.page');
     const newsPlace = document.querySelector('.news');
 
@@ -207,4 +207,4 @@ console.log('dfdfd');
 
     
 
-}());
+})();

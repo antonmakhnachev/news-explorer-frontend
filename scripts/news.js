@@ -32,7 +32,7 @@ export class News {
         newsCard.appendChild(newsSource);
 
         newsImg.src = news.urlToImage;
-        newsFavorIcon.src = '../images/icon/bookmark.png'
+        newsFavorIcon.src = '../images/bookmark.png'
         newsDate.textContent = new Date(news.publishedAt).toDateString();
         newsTitle.textContent = news.title;
         newsText.textContent = news.description;

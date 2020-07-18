@@ -11,6 +11,10 @@
     justify-content: center;
 }
 
+.news__group-name:hover {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
     .news__group-name {
         top: 8px;

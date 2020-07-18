@@ -12,14 +12,14 @@
     <section class="main page-account white-theme">
         <header class="header white-theme ">            
             <a href="./index.html" class="header__site-name white-theme">NewsExplorer</a>
-            <img class="header__mobile-icon" src="../images/icon/menu_open_white_theme.png">
+            <img class="header__mobile-icon" src="<%=require('../images/menu_open_white_theme.png').default%>">
             <div class="header__menu-mobile ">                
                 <div class="header__menu">
                     <a href="./index.html" class="menu__text white-theme menu_is-opened">Главная</a>
                     <a href="./pages/account.html" class="menu__text white-theme menu_is-opened">Сохраненные статьи</a>
                 </div>         
-                <button class="header__button button white-theme">Авторизоваться
-                    <img class="header__logout-img" src="./images/icon/logout.png">
+                <button class="header__button button white-theme">Грета
+                    <img class="header__logout-img header__logout-img_is-opened" src="<%=require('../images/logout.png').default%>">
                 </button>
             </div>
         </header>
@@ -35,9 +35,9 @@
         <div class="news">
 
             <div class="news__card news__card_is-opened">                
-                <img class="news__img" src="<%=require('./images/cardImg.png')%>">
+                <img class="news__img" src="<%=require('../images/cardImg.png').default%>">
                 <div class="news__del">
-                    <img class="news__del-icon" src="<%=require('./images/trash.png')%>">
+                    <img class="news__del-icon" src="<%=require('../images/trash.png').default%>">
                 </div>
                 <div class="news__group-name">
                     <p class="news__group-text">Природа</p>
@@ -58,8 +58,8 @@
             <a href="https://praktikum.yandex.ru/" class="footer__text">Яндекс.Практикум</a>
         </div>
         <div class="footer__social">
-            <a href="https://github.com/antonmakhnachev"><img class="footer__icon" src="../images/icon/Vector.png"></a>
-            <a href="https://www.facebook.com/"><img class="footer__icon" src="../images/social/Vector.png"></a>
+            <a href="https://github.com/antonmakhnachev"><img class="footer__icon" src="<%=require('../images/logo-github.png').default%>" alt="Ошибка загрузки изображения"></a>
+            <a href="https://www.facebook.com/"><img class="footer__icon" src="<%=require('../images/logo-fb.png').default%>" alt="Ошибка загрузки изображения"></a>
         </div>
     </footer>
 

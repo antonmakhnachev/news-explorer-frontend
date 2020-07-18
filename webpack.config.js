@@ -11,7 +11,7 @@ const imagemin = require('imagemin');
 const imageminPngquant = require('imagemin-pngquant');
 const pngquantExec = execFile(pngquant, ['-o', 'output.png', 'input.png']);
 module.exports = {
-  entry: {main: './scripts/index.js'},
+  entry: {main: './src/index.js'},
   output: {
     path: path.resolve (__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
@@ -61,12 +61,12 @@ module.exports = {
     }),
     new HtmlWebpackPlugin ({
       inject: false,
-      template: './index.html',
+      template: './src/index.html',
       filename: 'index.html',
     }),
     new HtmlWebpackPlugin ({
       inject: false,
-      template: './account.html',
+      template: './src/account.html',
       filename: 'account.html',
     }),
     new webpack.DefinePlugin ({

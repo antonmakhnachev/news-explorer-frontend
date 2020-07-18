@@ -11,6 +11,10 @@
     right: 24px;    
 }
 
+.news__favor:hover {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
     .news__favor {
         top: 8px;

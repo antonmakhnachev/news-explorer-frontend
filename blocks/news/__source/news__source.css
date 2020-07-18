@@ -1,8 +1,13 @@
 .news__source {
+    display: block;
     font-family: "Roboto Slab";
     font-size: 16px;
     line-height: 20px;
     color: #B6BCBF;
-    margin: 18px 0 24px 24px;
+    margin: 18px 24px 24px 24px;
     text-decoration: none;
+}
+
+.news__source:hover {
+    cursor: pointer;
 }
