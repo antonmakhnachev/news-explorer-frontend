@@ -1,5 +1,5 @@
-//import '../pages/index.css';
-// 97fdf652ccdc4129b402ac0e0ac15072
+import '../pages/index.css';
+
 
 import {Popup} from './popup.js';
 import {FormValidator} from './formvalidator.js';
@@ -20,7 +20,9 @@ console.log('dfdfd');
     const formReg = document.forms.form_reg;
     const formSearch = document.forms.form_search;
 
-    const searchResultButton = document.querySelector('.search-result__button');
+    const msgLink = document.querySelector('.msg__link');
+
+    
 
     const isDev = 'development';
     const serverNews = isDev === 'development' ? 'https://newsapi.org/v2/everything?' : 'https://praktikum.tk/news/v2/everything?';
@@ -50,6 +52,7 @@ console.log('dfdfd');
     const buttonAuth = document.getElementById('button_auth');
     const buttonClose = document.querySelectorAll('.popup__close');
     const buttonSearch =document.getElementById('button_search');
+    const searchResultButton = document.querySelector('.search-result__button');
 
     const openFormByLink = document.querySelectorAll('.form__link');
 
@@ -81,7 +84,16 @@ console.log('dfdfd');
         button.addEventListener('click', (event) => {            
             popup.control(event.target.closest('.popup'));            
         });
-    });    
+    });
+    
+    msgLink.addEventListener('click', () => {
+        event.preventDefault();
+        const errMessagesList = document.querySelectorAll('.form__err');
+
+        popup.control(msgLink.closest('.popup'));
+        popup.control(formAuth.closest('.popup'));
+        popup.clearErrMessages(errMessagesList);
+    });
 
     // загрузка новостей
     formSearch.addEventListener('submit', () => {
@@ -122,11 +134,13 @@ console.log('dfdfd');
     })
 
 
-
+    // показать больше новостей на странице
     searchResultButton.addEventListener('click', () => {
         newsList.showMoreNews();
     })
 
+
+    // регистрация нового пользователя
     formReg.addEventListener('submit', () => {
         event.preventDefault();
 
@@ -134,21 +148,51 @@ console.log('dfdfd');
             email: formReg.elements.reg_email.value,
             password: formReg.elements.reg_pass.value,
             name: formReg.elements.reg_name.value
-        };
-
-        //console.log(userData)
+        };       
 
         apiMyServer.createUser(userData)
             .then((res) => {
                 console.log(res)
             })
+            .then(() => {
+                popup.control(formReg.closest('.popup'));
+                popup.control(msgLink.closest('.popup'));
+            })
             .catch(err => {
                 console.log(err)
             });
+    });
 
+    // авторизация
+    formAuth.addEventListener('submit', () => {
+        event.preventDefault();
 
+        const menuAuth = document.querySelector('.menu__text-auth');
+        const logoutIcon = document.querySelector('.header__logout-img');
+        
 
-    })
+        const userData = {
+            email: formAuth.elements.auth_email.value,
+            password: formAuth.elements.auth_pass.value,            
+        };
+
+        apiMyServer.login(userData)
+            .then((res) => {
+                console.log(res)
+                popup.control(formAuth.closest('.popup'));
+                menuAuth.classList.add('menu_is-opened');
+                
+                
+                buttonAuth.textContent = res.user.name;
+                logoutIcon.classList.add('header__logout-img_is-opened');
+                buttonAuth.appendChild(logoutIcon)
+                
+
+            })
+            .catch(err => {
+                console.log(err)
+            });
+    });
     
 
     

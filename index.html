@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Diploma work of the Yandex.Praktikum">
-    <link rel="stylesheet" href="./pages/index.css">    
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">    
     <!-- <%=htmlWebpackPlugin.files.chunks.main.css%> -->
     <title>News-Explorer</title>    
 </head>
@@ -13,13 +13,15 @@
     <section class="main">
         <header class="header ">            
             <a href="./index.html" class="header__site-name">NewsExplorer</a>
-            <img class="header__mobile-icon" src="../images/icon/menu_mobile.png">
+            <img class="header__mobile-icon" src="<%=require('./images/menu_mobile.png')%>" alt="Ошибка загрузки изображения">
             <div class="header__menu-mobile ">                
                 <div class="header__menu">
                     <a href="./index.html" class="menu__text menu_is-opened">Главная</a>
-                    <a href="../pages/account.html" class="menu__text menu_is-opened">Сохраненные статьи</a>
+                    <a href="./account.html" class="menu__text menu__text-auth" target="_blank">Сохраненные статьи</a>
                 </div>         
-                <button class="header__button button" id="button_auth">Авторизоваться</button>
+                <button class="header__button button" id="button_auth">Авторизоваться
+                    <img class="header__logout-img" src="<%=require('./images/logout_white.png')%>">
+                </button>
             </div>
         </header>
 
@@ -60,7 +62,7 @@
     </section>
 
     <section class="about">
-        <img class="about__image" src="../images/image-03.png">
+        <img class="about__image" src="<%=require('./images/image-03.png')%>" alt="Ошибка загрузки изображения">
         <div class="about__description">
             <h2 class="about__title">Об авторе</h2>
             <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
@@ -71,7 +73,7 @@
     <!-- Форма авторизации -->
     <div class="popup" id="popup_form_auth">
         <div class="popup__content">
-            <img src="../images/icon/close.png" alt="" class="popup__close">
+            <img src="<%=require('./images/close.png')%>" alt="Ошибка загрузки изображения" class="popup__close">
             <form class="form" name="form_auth">
                 <h2 class="form__title">Вход</h2>
 
@@ -92,7 +94,7 @@
     <!-- Форма регистрации -->
     <div class="popup" id="popup_form_reg">
         <div class="popup__content">
-            <img src="../images/icon/close.png" alt="" class="popup__close">
+            <img src="<%=require('./images/close.png')%>" alt="Ошибка загрузки изображения" class="popup__close">
             <form class="form" name="form_reg">
                 <h2 class="form__title">Регистрация</h2>
 
@@ -116,9 +118,9 @@
         </div>
     </div>
 
-    <div class="popup popup_is-opened">
+    <div class="popup" id="msg_create_status">
         <div class=popup__content>
-            <img src="../images/icon/close.png" alt="" class="popup__close">
+            <img src="<%=require('./images/close.png')%>" alt="Ошибка загрузки изображения" class="popup__close">
             <p class="msg__text">Пользователь успешно зарегистрирован!</p>
             <a href="" class="msg__link">Выполнить вход</a>
         </div>
@@ -131,12 +133,13 @@
             <a href="https://praktikum.yandex.ru/" class="footer__text">Яндекс.Практикум</a>
         </div>
         <div class="footer__social">
-            <a href="https://github.com/antonmakhnachev"><img class="footer__icon" src="../images/icon/Vector.png"></a>
-            <a href="https://www.facebook.com/"><img class="footer__icon" src="../images/social/Vector.png"></a>
+            <a href="https://github.com/antonmakhnachev"><img class="footer__icon" src="<%=require('./images/logo-github.png')%>" alt="Ошибка загрузки изображения"></a>
+            <a href="https://www.facebook.com/"><img class="footer__icon" src="<%=require('./images/logo-fb.png')%>" alt="Ошибка загрузки изображения"></a>
         </div>
     </footer>
 
-    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+    <!-- <%= htmlWebpackPlugin.files.chunks.main.js%> -->
     <!-- <%= htmlWebpackPlugin.files.js %> -->
 </body>
 </html>

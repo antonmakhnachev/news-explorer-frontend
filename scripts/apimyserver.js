@@ -28,7 +28,26 @@ export class ApiMyServer {
             })
         })
       .then(res => this._getResponseData(res))
-  }
+    }
+
+    login(userData) {
+        console.log({
+            email: userData.email,
+            password: userData.password,            
+        })
+
+        return fetch(`${this.options.baseUrl}/signin`, {
+            method: 'POST',
+            headers: this.options.headers,
+            body: JSON.stringify({
+                email: userData.email,
+                password: userData.password,                
+            })
+        })
+        .then(res => this._getResponseData(res))
+
+    
+    }
 };
 
 

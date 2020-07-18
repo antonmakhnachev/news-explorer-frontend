@@ -4,9 +4,9 @@
   "description": "Открыть меню на 320\r элементу с классом header добавить класс header_opened-menu\r элементу с классом header__menu-mobile добавить класс menu-mobile_is-opened",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production rimraf dist && webpack --mode production",
-    "dev": "NODE_ENV=development webpack-dev-server --mode development --open --watch",
-    "deploy": "NODE_ENV=production gh-pages -d dist"
+    "build": "cross-env NODE_ENV=production rimraf dist && webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
+    "deploy": "cross-env NODE_ENV=production gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -48,6 +48,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.4.1",
+    "mdn-browser-compat-data": "^1.0.31",
     "resolve-cwd": "^3.0.0"
   }
 }

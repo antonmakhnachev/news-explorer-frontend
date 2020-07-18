@@ -28,7 +28,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'
+          (isDev ? 'style-loader' : MiniCssExtractPlugin.loader), 'css-loader', 'postcss-loader'
         ],
       }, // настройкa плагина image-webpack-loader
       {
@@ -49,7 +49,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin ({
-      filename: 'index.[contenthash].css',
+      filename: 'main.[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin ({
       assetNameRegExp: /\.css$/g,

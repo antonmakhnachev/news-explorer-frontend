@@ -1,6 +1,9 @@
 @import url("../../button/button.css");
 
 .header__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 176px;
     height: 48px;
     background-color: transparent;
