@@ -7,21 +7,15 @@
     box-sizing: border-box; 
 }
 
-.search__input:focus {
-    outline: none;
+.search__input:focus {    
+    outline-offset: -10px;
 }
 
-@media screen and (max-width: 768px) {
-    .search__input {
-        /* width: 424px; */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .search__input {        
         height: 56px;
         padding: 0 0 0 20px;
         border: 0;
     }
 }
 
-/* @media screen and (max-width: 425px) {
-    .search__input {
-        width: 100%;       
-    }
-} */

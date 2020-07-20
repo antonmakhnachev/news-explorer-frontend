@@ -11,7 +11,8 @@ const imagemin = require('imagemin');
 const imageminPngquant = require('imagemin-pngquant');
 const pngquantExec = execFile(pngquant, ['-o', 'output.png', 'input.png']);
 module.exports = {
-  entry: {main: './src/index.js'},
+  entry: {main: './src/index.js',
+          account: './src/account.js'},
   output: {
     path: path.resolve (__dirname, 'dist'),
     filename: '[name].[chunkhash].js',

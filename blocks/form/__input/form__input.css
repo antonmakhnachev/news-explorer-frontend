@@ -8,10 +8,7 @@
     width: 100%;
     box-sizing: border-box;
     height: 30px;
-    width: 358px;
-        
+    width: 358px;        
 }
 
-.form__input:focus {
-    outline: none;
-}
+

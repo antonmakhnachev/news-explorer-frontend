@@ -6,7 +6,7 @@
     align-items: center;    
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
     .footer__menu {
         grid-area: menu;
         grid-column-start: 1;
