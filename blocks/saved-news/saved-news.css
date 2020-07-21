@@ -2,5 +2,6 @@
     width: 100%;
     background-color: #F5F6F7;
     /* margin-top: 64px;     */
-    border: 1px  solid transparent;
+    border: 1px  solid red;
+    /* transparent */
 }

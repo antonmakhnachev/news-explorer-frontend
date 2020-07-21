@@ -50,7 +50,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin ({
-      filename: 'main.[contenthash].css',
+      filename: '[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin ({
       assetNameRegExp: /\.css$/g,

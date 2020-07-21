@@ -3,14 +3,20 @@
 @import url("../blocks/main/main.css");
 @import url("../blocks/header/header.css");
 @import url("../blocks/search/search.css");
-@import url("../blocks/about/about.css");
+/* @import url("../blocks/about/about.css"); */
 @import url("../blocks/footer/footer.css");
-@import url("../blocks/search-result/search-result.css");
+/* @import url("../blocks/search-result/search-result.css"); */
 @import url("../blocks/news/news.css");
 @import url("../blocks/popup/popup.css");
-@import url("../blocks/form/form.css");
-@import url("../blocks/preloader/preloader.css");
-@import url("../blocks/msg/msg.css");
+/* @import url("../blocks/form/form.css"); */
+/* @import url("../blocks/preloader/preloader.css"); */
+/* @import url("../blocks/msg/msg.css"); */
+
+
+
+@import url("../blocks/info/info.css");
+@import url("../blocks/saved-news/saved-news.css");
+
 
 .page {
     max-width: 100%;

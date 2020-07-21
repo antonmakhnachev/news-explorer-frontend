@@ -24,5 +24,9 @@
         width: calc(100% - 32px);
         margin: 0 0 24px 16px;
     }
+
+    .header__button.menu_is-opened {
+        color: #ffffff;
+    }
 }
 

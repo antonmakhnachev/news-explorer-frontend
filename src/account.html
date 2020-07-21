@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Diploma work of the Yandex.Praktikum">
-    <link rel="stylesheet" href="./pages/index.css">    
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.account.css %>">    
     <title>News-Explorer</title>    
 </head>
-<body class="page">
+<body class="page" name="account">
     <section class="main page-account white-theme">
         <header class="header white-theme ">            
             <a href="./index.html" class="header__site-name white-theme">NewsExplorer</a>
             <img class="header__mobile-icon" src="<%=require('../images/menu_open_white_theme.png').default%>">
             <div class="header__menu-mobile ">                
                 <div class="header__menu">
-                    <a href="./index.html" class="menu__text white-theme menu_is-opened">Главная</a>
-                    <a href="./pages/account.html" class="menu__text white-theme menu_is-opened">Сохраненные статьи</a>
+                    <a href="./index.html" class="menu__text white-theme is-auth">Главная</a>
+                    <a href="./pages/account.html" class="menu__text white-theme is-auth">Сохраненные статьи</a>
                 </div>         
                 <button class="header__button button white-theme">Грета
                     <img class="header__logout-img header__logout-img_is-opened" src="<%=require('../images/logout.png').default%>">

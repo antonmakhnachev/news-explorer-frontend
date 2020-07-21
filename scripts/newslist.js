@@ -1,12 +1,17 @@
 export class NewsList {
-    constructor(container, news) {
+    constructor(container, news, apiMyServer) {
         this.container = container;
         this.news = news;
+        this.apiMyServer = apiMyServer;
     }
 
     addNews(newsData) {
         const newsElement = this.news.createNews(newsData);
         this.container.appendChild(newsElement);
+        // console.log(this.apiMyServer.baseUrl);
+        newsElement
+            .querySelector('.news__favor')
+            .addEventListener('click', this.news.saveNews.bind(this))
     }
 
 

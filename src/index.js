@@ -7,6 +7,8 @@ import {ApiGetNews} from '../scripts/apigetnews.js';
 import {ApiMyServer} from '../scripts/apimyserver.js';
 import {News} from '../scripts/news.js';
 import {NewsList} from '../scripts/newslist.js';
+// import {User} from '../scripts/user.js';
+import {DisplayControl} from '../scripts/displayControl.js'
 
 
 console.log('dfdfd');
@@ -32,8 +34,8 @@ console.log('dfdfd');
 
     const popup = new Popup();
     const formValidator = new FormValidator();
-    const news = new News();
-    const newsList = new NewsList(newsPlace, news);
+    
+    
     const apiGetNews = new ApiGetNews ({
         baseUrl: serverNews,
         apiKey: apiKey,
@@ -48,6 +50,11 @@ console.log('dfdfd');
             'Content-Type': 'application/json'
         }
     });
+    const news = new News(apiMyServer);
+    const newsList = new NewsList(newsPlace, news, apiMyServer);
+    
+    // const user = new User(apiMyServer);
+    const displayControl = new DisplayControl(popup)
 
     const buttonAuth = document.getElementById('button_auth');
     const buttonClose = document.querySelectorAll('.popup__close');
@@ -56,6 +63,7 @@ console.log('dfdfd');
     const buttonMobileMenu = document.querySelector('.header__mobile-icon');
 
     const openFormByLink = document.querySelectorAll('.form__link');
+    const savedNews = document.getElementById('savedNews');
 
     const forms = document.querySelectorAll('.form')
 
@@ -63,10 +71,21 @@ console.log('dfdfd');
 
 
     // открытие формы авторизации
-    buttonAuth.addEventListener('click', () => {  
-        const errMessagesList = document.querySelectorAll('.form__err');      
-        popup.control(formAuth.closest('.popup'));
-        popup.clearErrMessages(errMessagesList);
+    buttonAuth.addEventListener('click', () => {
+        const isAuth = localStorage.getItem('user');  
+        const errMessagesList = document.querySelectorAll('.form__err');        
+        
+        if (isAuth) {
+            displayControl.logout();
+        } else {
+            popup.control(formAuth.closest('.popup'));
+            popup.clearErrMessages(errMessagesList);
+        }
+
+        // popup.control(formAuth.closest('.popup'));
+        // popup.clearErrMessages(errMessagesList);
+
+        
         // formAuth.reset();
     });
 
@@ -138,7 +157,7 @@ console.log('dfdfd');
     // показать больше новостей на странице
     searchResultButton.addEventListener('click', () => {
         newsList.showMoreNews();
-    })
+    });
 
 
     // регистрация нового пользователя
@@ -149,15 +168,14 @@ console.log('dfdfd');
             email: formReg.elements.reg_email.value,
             password: formReg.elements.reg_pass.value,
             name: formReg.elements.reg_name.value
-        };       
+        };        
 
         apiMyServer.createUser(userData)
             .then((res) => {
                 console.log(res)
             })
             .then(() => {
-                popup.control(formReg.closest('.popup'));
-                popup.control(msgLink.closest('.popup'));
+                displayControl.signup();
             })
             .catch(err => {
                 console.log(err)
@@ -166,11 +184,7 @@ console.log('dfdfd');
 
     // авторизация
     formAuth.addEventListener('submit', () => {
-        event.preventDefault();
-
-        const menuAuth = document.querySelector('.menu__text-auth');
-        const logoutIcon = document.querySelector('.header__logout-img');
-        
+        event.preventDefault();       
 
         const userData = {
             email: formAuth.elements.auth_email.value,
@@ -179,20 +193,13 @@ console.log('dfdfd');
 
         apiMyServer.login(userData)
             .then((res) => {
-                console.log(res)
-                popup.control(formAuth.closest('.popup'));
-                menuAuth.classList.add('menu_is-opened');
-                
-                
-                buttonAuth.textContent = res.user.name;
-                logoutIcon.classList.add('header__logout-img_is-opened');
-                buttonAuth.appendChild(logoutIcon)
-                
-
+                displayControl.login(res.user.name);
+                console.log(res)                
+                console.log(localStorage.getItem('user'));
             })
             .catch(err => {
                 console.log(err)
-            });
+            });            
     });
 
     // управление мобильным меню
@@ -212,13 +219,16 @@ console.log('dfdfd');
             isOpened = 0;
         }
         
-    })
-    
+    });    
 
-    
+    // показ страницы для авториизованных пользователей при перезагрузке страницы
+    if (localStorage.getItem('user')) {
+        const userData = JSON.parse(localStorage.getItem('user'));        
+        displayControl.login(userData.userName, userData.isAuth);
+    };
 
 
-
+    // добавление валидаторов на форму
     for (const form of forms) {
         formValidator.setEventListener(form);
     };

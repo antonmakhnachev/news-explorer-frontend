@@ -20,6 +20,7 @@ export class ApiMyServer {
 
         return fetch(`${this.options.baseUrl}/signup`, {
             method: 'POST',
+            credentials: 'include',
             headers: this.options.headers,
             body: JSON.stringify({
                 email: userData.email,
@@ -38,6 +39,7 @@ export class ApiMyServer {
 
         return fetch(`${this.options.baseUrl}/signin`, {
             method: 'POST',
+            credentials: 'include',
             headers: this.options.headers,
             body: JSON.stringify({
                 email: userData.email,
@@ -48,6 +50,8 @@ export class ApiMyServer {
 
     
     }
+
+    
 };
 
 

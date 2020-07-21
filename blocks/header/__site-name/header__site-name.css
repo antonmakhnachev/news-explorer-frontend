@@ -27,4 +27,10 @@
         grid-column-start: 1;
         grid-column-end: 1;
     }
+
+    .header__site-name.menu_is-opened {
+        color: #ffffff;
+    }
+
+
 }

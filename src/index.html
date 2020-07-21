@@ -16,11 +16,11 @@
             <img class="header__mobile-icon" src="<%=require('../images/menu_mobile.png').default%>" alt="Ошибка загрузки изображения">
             <div class="header__menu-mobile ">                
                 <div class="header__menu">
-                    <a href="./index.html" class="menu__text menu_is-opened">Главная</a>
-                    <a href="./account.html" class="menu__text menu__text-auth" target="_blank">Сохраненные статьи</a>
+                    <a href="./index.html" class="menu__text is-auth">Главная</a>
+                    <a id="savedNews" href="./account.html" class="menu__text menu__text-auth" target="_blank">Сохраненные статьи</a>
                 </div>         
                 <button class="header__button button" id="button_auth">Авторизоваться
-                    <img class="header__logout-img" src="<%=require('../images/logout_white.png').default%>">
+                    <img class="header__logout-img" id="logoutImg" src="<%=require('../images/logout_white.png').default%>">
                 </button>
             </div>
         </header>
@@ -120,7 +120,7 @@
 
     <div class="popup" id="msg_create_status">
         <div class=popup__content>
-            <img src="<%=require('../images/close.png').defautl%>" alt="Ошибка загрузки изображения" class="popup__close">
+            <img src="<%=require('../images/close.png').default%>" alt="Ошибка загрузки изображения" class="popup__close">
             <p class="msg__text">Пользователь успешно зарегистрирован!</p>
             <a href="" class="msg__link">Выполнить вход</a>
         </div>

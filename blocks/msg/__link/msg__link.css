@@ -4,9 +4,7 @@
     line-height: 22px;
     margin: 14px 0 51px 36px;
     text-decoration: none;
-    color: #2f71e5;
-
-    border: 1px red solid;
+    color: #2f71e5;    
 }
 
 .msg__link:hover {

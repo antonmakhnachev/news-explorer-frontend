@@ -11,7 +11,7 @@
     text-decoration: underline;
 }
 
-.menu__text.menu_is-opened {
+.menu__text.is-auth {
     display: inline;
 }
 
@@ -34,4 +34,9 @@
         margin-bottom: 22px;
         margin-top: 22px;
     }
+
+    .menu__text.menu_is-opened {
+        color: #ffffff;
+    }
+
 }
