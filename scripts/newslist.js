@@ -8,54 +8,26 @@ export class NewsList {
     addNews(newsData, pageName) {
         const newsElement = this.news.createNews(newsData, pageName);
         this.container.appendChild(newsElement);
-        // console.log(this.apiMyServer.baseUrl);
+        
         switch (pageName) {
             case 'main':
                 newsElement
                     .querySelector('.news__favor')
-                    .addEventListener('click', this.news.saveNews.bind(this))      
-                    // () => {
-                        // this.news.saveNews.bind(this)
-                        //     // .then(() => {
-                        //         const newsFavorIcon = newsElement.querySelector('.news__favor-icon');
-                        //         newsFavorIcon.src = '../images/bookmark_active.png'
-                            // })
-                            // .catch(err => console.log(err))
-                        
-                            // .then(() => {
-                                
-                                // const newsFavorIcon = newsElement.querySelector('.news__favor-icon');
-                                // console.log(newsFavorIcon.getAttribute('srс'))
-                                // if (newsFavorIcon.src === "<%=require('../images/bookmark.png').default%>") {
-                                //     newsFavorIcon.src = '../images/bookmark_active.png'
-                                // } else {
-                                //     newsFavorIcon.src = '../images/bookmark.png'
-                                // }                                    
-                            // })
-                    // });
+                    .addEventListener('click', this.news.save.bind(this))                    
             break;
             case 'account':
                 newsElement
                     .querySelector('.news__del')
-                    .addEventListener('click', this.news.deleteSavedNews.bind(this))
-                    // () => {
-                    //     this.news.deleteSavedNews.bind(this)
-                    //         .then(() => {
-                    //             console.log(event.target);
-                    //         })
-                    //         .catch(err => console.log(err));
-                    // });
+                    .addEventListener('click', this.news.deleteSavedNews.bind(this))                    
             break;
-        };
-            
-       
+        };      
     };
 
 
     renderNews(newsList, pageName) {
         for (const newsData of newsList) {
             this.addNews(newsData, pageName);            
-        }
+        };
     };
 
     showMoreNews() {
@@ -67,8 +39,8 @@ export class NewsList {
                 if (i < 3) {
                     card.classList.add('news__card_is-opened');
                     i++;
-                }
-            }                
-        }        
+                };
+            };                
+        };        
     };
 };

@@ -1,7 +1,7 @@
 export class ApiMyServer {
     constructor(options) {
         this.options = options;
-    }
+    };
 
     _getResponseData(res) {
         if (!res.ok) {
@@ -29,7 +29,7 @@ export class ApiMyServer {
             })
         })
       .then(res => this._getResponseData(res))
-    }
+    };
 
     login(userData) {
         console.log({
@@ -46,10 +46,37 @@ export class ApiMyServer {
                 password: userData.password,                
             })
         })
-        .then(res => this._getResponseData(res))
+        .then(res => this._getResponseData(res))    
+    };
 
-    
+    saveNews(news, keyword) {
+        return fetch(`${this.options.baseUrl}/articles`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: this.options.headers,
+            body: JSON.stringify({
+                keyword: keyword,
+                title: news.querySelector('.news__title').textContent,
+                text: news.querySelector('.news__text').textContent,
+                date: news.querySelector('.news__date').textContent.toString(),
+                source: news.querySelector('.news__source').textContent,
+                link: news.querySelector('.news__source').href,
+                image: news.querySelector('.news__img').src      
+            })
+        })
+        .then(res => this._getResponseData(res))
+    };
+
+    deleteNews(newsId) {
+        return fetch(`${this.options.baseUrl}/articles/${newsId}`, {
+            method: 'DELETE',
+            credentials: 'include',
+            headers: this.options.headers            
+        })
+        .then(res => this._getResponseData(res))
     }
+
+
 
     
 };

@@ -20,7 +20,7 @@
                     <a id="savedNews" href="./account.html" class="menu__text menu__text-auth" target="_blank">Сохраненные статьи</a>
                 </div>         
                 <button class="header__button button" id="button_auth">Авторизоваться
-                    <img class="header__logout-img" id="logoutImg" src="<%=require('../images/logout_white.png').default%>">
+                    <!-- <img class="header__logout-img" id="logoutImg" src="<%=require('../images/logout_white.png').default%>"> -->
                 </button>
             </div>
         </header>
@@ -48,7 +48,11 @@
 
             <div class="news__card news__card_is-opened">                
                 <img class="news__img" src="../images/cardImg.png">
-                <button class="news__favor"></button>
+                <div class="news__favor-place">                    
+                    <button class="news__favor"></button>
+                    <p class="news__auth-err">Войдите, чтобы сохранять статьи</p>
+                </div>
+                
                 <!-- <div class="news__favor">
                     <img class="news__favor-icon" src="../images/bookmark.png">
                 </div> -->

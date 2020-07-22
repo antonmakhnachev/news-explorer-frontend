@@ -1,0 +1,19 @@
+.news__auth-err {
+    display: none;
+    align-items: center;
+    justify-content: center;    
+    border: none;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 182px;
+    height: 40px;
+    font-size: 10px;
+    line-height: 12px;
+    background-color: #ffffff;
+    margin: 0 5px 0 0;
+    
+}
+
+.news__auth-err_is-opened {
+    display: flex;
+}

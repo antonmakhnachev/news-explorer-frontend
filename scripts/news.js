@@ -18,8 +18,9 @@ export class News {
 
         const newsCard = document.createElement('div');
         const newsImg = document.createElement('img');
-        const newsFavor = document.createElement('div');
-        const newsFavorIcon = document.createElement('img');
+        const newsFavor = document.createElement('button');
+        const favorPlace = document.createElement('div');
+        const authErr = document.createElement('p');        
         const newsDate = document.createElement('p');
         const newsTitle = document.createElement('h3');
         const newsText = document.createElement('p');
@@ -34,7 +35,8 @@ export class News {
         newsCard.classList.add('news__card');
         newsImg.classList.add('news__img');
         newsFavor.classList.add('news__favor');
-        newsFavorIcon.classList.add('news__favor-icon');
+        favorPlace.classList.add('news__favor-place');
+        authErr.classList.add('news__auth-err');
         newsDate.classList.add('news__date');
         newsTitle.classList.add('news__title');
         newsText.classList.add('news__text');
@@ -53,23 +55,24 @@ export class News {
 
         switch (pageName) {
             case 'main':
-                newsCard.appendChild(newsFavor);
-                newsFavor.appendChild(newsFavorIcon);
+                newsCard.appendChild(favorPlace);
+                favorPlace.appendChild(newsFavor);
+                favorPlace.appendChild(authErr);
+                               
 
                 newsImg.src = news.urlToImage;        
                 newsDate.textContent = new Date(news.publishedAt).toDateString();
                 newsTitle.textContent = news.title;
                 newsText.textContent = news.description;
                 newsSource.textContent = news.source.name;
-                newsSource.href = news.url;
-                newsFavorIcon.src = '../images/bookmark.png';
-                
+                newsSource.href = news.url;  
+                authErr.textContent = 'Войдите, чтобы сохранять статьи';        
             break;
 
             case 'account':
                 newsCard.classList.add('news__card_is-opened');
                 newsCard.appendChild(newsDel);
-                newsDel.appendChild(newsDelIcon);
+                // newsDel.appendChild(newsDelIcon);
                 newsCard.appendChild(newsGroupName);
                 newsGroupName.appendChild(newsGroupText);
 
@@ -79,10 +82,11 @@ export class News {
                 newsText.textContent = news.text;
                 newsSource.textContent = news.source;
                 newsSource.href = news.link;
-                newsDelIcon.src = '../images/trash.png';
+                // newsDelIcon.src = '../images/trash.png';
                 newsGroupText.textContent = news.keyword;
 
                 newsCard.setAttribute('id', news._id);
+                console.log(newsCard.getAttribute('id'))
 
             break;
         };        
@@ -91,27 +95,38 @@ export class News {
         return newsCard;
     }
 
-    saveNews(event) {
-        const card = event.target.closest('.news__card');
-        const keywordValue = document.querySelector('.search__input');
+    save(event) {
+        const news = event.target.closest('.news__card');
+        const newsFavor = news.querySelector('.news__favor');
+        const authErr = news.querySelector('.news__auth-err');
+        const keyword = document.querySelector('.search__input');
+        const isAuth = localStorage.getItem('user');
+
+        if (!isAuth) {
+            newsFavor.disabled = true;
+            authErr.classList.add('news__auth-err_is-opened');
+
+            return;
+        }
         
-        return fetch(`${this.apiMyServer.options.baseUrl}/articles`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: this.apiMyServer.options.headers,
-            body: JSON.stringify({
-                keyword: keywordValue.value,
-                title: card.querySelector('.news__title').textContent,
-                text: card.querySelector('.news__text').textContent,
-                date: card.querySelector('.news__date').textContent.toString(),
-                source: card.querySelector('.news__source').textContent,
-                link: card.querySelector('.news__source').href,
-                image: card.querySelector('.news__img').src      
-            })
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
-    }
+
+        if (newsFavor.classList.contains('news__favor_is-favor')) {
+            const newsId = news.getAttribute('id');            
+            newsFavor.classList.remove('news__favor_is-favor')
+            this.apiMyServer.deleteNews(newsId)
+                .then((res) => console.log(res))
+                .catch(err => console.log(err))
+        } else {
+            newsFavor.classList.add('news__favor_is-favor')
+            this.apiMyServer.saveNews(news, keyword.value)
+                .then((res) => {
+                    const newsId = res.data._id;
+                    news.setAttribute('id', newsId);
+                    // console.log(news);
+                })
+                .catch(err => console.log(err));
+        };        
+    };
 
     getSavedNews() {
         return fetch(`${this.apiMyServer.options.baseUrl}/articles`, {            
@@ -119,17 +134,16 @@ export class News {
         })
         .then(res => this._getResponseData(res))          
         .catch(err => console.log(err));
-    }
+    };
 
-    deleteSavedNews(news) {
-        const newsId = event.target.id //news.id;
-        return fetch(`${this.apiMyServer.options.baseUrl}/articles/:${newsId}`, {            
-            method: 'DELETE',
-            credentials: 'include'
-        })
-        .then(res => console.log(res))          
-        .catch(err => console.log(err)); 
-    }
+    deleteSavedNews(event) {
+        const newsId = event.target.closest('.news__card').id;        
+        this.apiMyServer.deleteNews(newsId)
+            .then(() => {
+                document.getElementById(newsId).remove();                
+            })          
+            .catch(err => console.log(err)); 
+    };
 
     
 }

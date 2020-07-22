@@ -8,6 +8,8 @@
 @import url("./__group-text/news__group-text.css");
 @import url("./__del/news__del.css");
 @import url("./__favor/news__favor.css");
+@import url("./__auth-err/news__auth-err.css");
+@import url("./__favor-place/news__favor-place.css");
 
 .news {
     width: calc(100% - 208px);
