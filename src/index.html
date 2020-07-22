@@ -9,7 +9,7 @@
     <!-- <%=htmlWebpackPlugin.files.chunks.main.css%> -->
     <title>News-Explorer</title>    
 </head>
-<body class="page">
+<body class="page" name="main">
     <section class="main">
         <header class="header ">            
             <a href="./index.html" class="header__site-name">NewsExplorer</a>
@@ -42,20 +42,21 @@
         <i class="circle-preloader"></i>
     </div>    
 
-    <section class="search-result">
+    <section class="search-result search-result_is-opened">
         <h2 class="search-result__title">Результаты поиска</h2>
         <div class="news">
 
-            <!-- <div class="news__card">                
-                <img class="news__img" src="../images/card/cardImg.png">
-                <div class="news__favor">
-                    <img class="news__favor-icon" src="../images/icon/bookmark.png">
-                </div>
+            <div class="news__card news__card_is-opened">                
+                <img class="news__img" src="../images/cardImg.png">
+                <button class="news__favor"></button>
+                <!-- <div class="news__favor">
+                    <img class="news__favor-icon" src="../images/bookmark.png">
+                </div> -->
                 <p class="news__date">2 августа, 2019</p>
                 <h3 class="news__title">Национальное достояние – парки</h3>
                 <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
                 <a class="news__source">Лента.ру</a>
-            </div>           -->
+            </div>          
 
         </div>
         <button type class="search-result__button">Показать еще</button>

@@ -19,7 +19,7 @@ console.log('dfdfd');
     const isDev = 'development';
     
     const server = isDev === 'development' ? 'http://localhost:3000' : 'https://api.newsexplorer.gq';
-    const apiKey = '97fdf652ccdc4129b402ac0e0ac15072';   
+       
     
     const apiMyServer = new ApiMyServer({
         baseUrl: server,
@@ -64,9 +64,9 @@ console.log('dfdfd');
     // загрузка сохраненных новостей
     news.getSavedNews()
         .then((newsData) => {
-            const pageName = document.querySelector('.page');
+            const pageName = document.querySelector('.page').getAttribute('name');
             console.log(newsData.data)
-            console.log(pageName.name)
+            newsList.renderNews(newsData.data, pageName);
         })
         .catch(err => console.log(err));
 

@@ -3,23 +3,60 @@ export class NewsList {
         this.container = container;
         this.news = news;
         this.apiMyServer = apiMyServer;
-    }
+    };
 
-    addNews(newsData) {
-        const newsElement = this.news.createNews(newsData);
+    addNews(newsData, pageName) {
+        const newsElement = this.news.createNews(newsData, pageName);
         this.container.appendChild(newsElement);
         // console.log(this.apiMyServer.baseUrl);
-        newsElement
-            .querySelector('.news__favor')
-            .addEventListener('click', this.news.saveNews.bind(this))
-    }
+        switch (pageName) {
+            case 'main':
+                newsElement
+                    .querySelector('.news__favor')
+                    .addEventListener('click', this.news.saveNews.bind(this))      
+                    // () => {
+                        // this.news.saveNews.bind(this)
+                        //     // .then(() => {
+                        //         const newsFavorIcon = newsElement.querySelector('.news__favor-icon');
+                        //         newsFavorIcon.src = '../images/bookmark_active.png'
+                            // })
+                            // .catch(err => console.log(err))
+                        
+                            // .then(() => {
+                                
+                                // const newsFavorIcon = newsElement.querySelector('.news__favor-icon');
+                                // console.log(newsFavorIcon.getAttribute('srс'))
+                                // if (newsFavorIcon.src === "<%=require('../images/bookmark.png').default%>") {
+                                //     newsFavorIcon.src = '../images/bookmark_active.png'
+                                // } else {
+                                //     newsFavorIcon.src = '../images/bookmark.png'
+                                // }                                    
+                            // })
+                    // });
+            break;
+            case 'account':
+                newsElement
+                    .querySelector('.news__del')
+                    .addEventListener('click', this.news.deleteSavedNews.bind(this))
+                    // () => {
+                    //     this.news.deleteSavedNews.bind(this)
+                    //         .then(() => {
+                    //             console.log(event.target);
+                    //         })
+                    //         .catch(err => console.log(err));
+                    // });
+            break;
+        };
+            
+       
+    };
 
 
-    renderNews(newsList) {
+    renderNews(newsList, pageName) {
         for (const newsData of newsList) {
-            this.addNews(newsData);            
+            this.addNews(newsData, pageName);            
         }
-    }
+    };
 
     showMoreNews() {
         const cardList = document.querySelectorAll('.news__card');
@@ -33,5 +70,5 @@ export class NewsList {
                 }
             }                
         }        
-    }
-}
+    };
+};

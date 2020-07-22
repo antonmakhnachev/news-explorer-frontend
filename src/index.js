@@ -123,6 +123,7 @@ console.log('dfdfd');
         const searchResult = document.querySelector('.search-result');
         const newsCards = document.querySelectorAll('.news__card');
         const searchErr = document.querySelector('.search__err');
+        const pageName = document.querySelector('.page').getAttribute('name');
 
         if (formSearch.elements.keyword.value === '') {
             searchErr.textContent = 'Введите запрос';
@@ -140,7 +141,7 @@ console.log('dfdfd');
                     newsPlace.removeChild(newsCard);
                 }
                 console.log(news.articles.length)
-                newsList.renderNews(news.articles);
+                newsList.renderNews(news.articles, pageName);
             })
             
             .then(() => {

@@ -73,7 +73,7 @@ module.exports = {
     new webpack.DefinePlugin ({
       NODE_ENV: JSON.stringify (process.env.NODE_ENV),
     }),
-    new WebpackMd5Hash (),
+    new WebpackMd5Hash (),    
   ],
 };
 execFile (pngquant, ['-o', 'output.png', 'input.png'], err => {

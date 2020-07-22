@@ -14,7 +14,7 @@ export class News {
 
 
 
-    createNews(news) {        
+    createNews(news, pageName) {        
 
         const newsCard = document.createElement('div');
         const newsImg = document.createElement('img');
@@ -24,6 +24,12 @@ export class News {
         const newsTitle = document.createElement('h3');
         const newsText = document.createElement('p');
         const newsSource = document.createElement('a');
+        const newsDel = document.createElement('div');
+        const newsDelIcon = document.createElement('img');
+        const newsGroupName = document.createElement('div');
+        const newsGroupText = document.createElement('p');
+
+
 
         newsCard.classList.add('news__card');
         newsImg.classList.add('news__img');
@@ -33,22 +39,53 @@ export class News {
         newsTitle.classList.add('news__title');
         newsText.classList.add('news__text');
         newsSource.classList.add('news__source');
+        newsDel.classList.add('news__del');
+        newsDelIcon.classList.add('news__del-icon');
+        newsGroupName.classList.add('news__group-name');
+        newsGroupText.classList.add('news__group-text');
 
-        newsCard.appendChild(newsImg);
-        newsCard.appendChild(newsFavor);
-        newsFavor.appendChild(newsFavorIcon);
+
+        newsCard.appendChild(newsImg);        
         newsCard.appendChild(newsDate);
         newsCard.appendChild(newsTitle);
         newsCard.appendChild(newsText);
         newsCard.appendChild(newsSource);
 
-        newsImg.src = news.urlToImage;
-        newsFavorIcon.src = '../images/bookmark.png'
-        newsDate.textContent = new Date(news.publishedAt).toDateString();
-        newsTitle.textContent = news.title;
-        newsText.textContent = news.description;
-        newsSource.textContent = news.source.name;
-        newsSource.href = news.url;
+        switch (pageName) {
+            case 'main':
+                newsCard.appendChild(newsFavor);
+                newsFavor.appendChild(newsFavorIcon);
+
+                newsImg.src = news.urlToImage;        
+                newsDate.textContent = new Date(news.publishedAt).toDateString();
+                newsTitle.textContent = news.title;
+                newsText.textContent = news.description;
+                newsSource.textContent = news.source.name;
+                newsSource.href = news.url;
+                newsFavorIcon.src = '../images/bookmark.png';
+                
+            break;
+
+            case 'account':
+                newsCard.classList.add('news__card_is-opened');
+                newsCard.appendChild(newsDel);
+                newsDel.appendChild(newsDelIcon);
+                newsCard.appendChild(newsGroupName);
+                newsGroupName.appendChild(newsGroupText);
+
+                newsImg.src = news.image;
+                newsDate.textContent = news.date;
+                newsTitle.textContent = news.title;
+                newsText.textContent = news.text;
+                newsSource.textContent = news.source;
+                newsSource.href = news.link;
+                newsDelIcon.src = '../images/trash.png';
+                newsGroupText.textContent = news.keyword;
+
+                newsCard.setAttribute('id', news._id);
+
+            break;
+        };        
         newsSource.target = '_blank';
 
         return newsCard;
@@ -82,6 +119,16 @@ export class News {
         })
         .then(res => this._getResponseData(res))          
         .catch(err => console.log(err));
+    }
+
+    deleteSavedNews(news) {
+        const newsId = event.target.id //news.id;
+        return fetch(`${this.apiMyServer.options.baseUrl}/articles/:${newsId}`, {            
+            method: 'DELETE',
+            credentials: 'include'
+        })
+        .then(res => console.log(res))          
+        .catch(err => console.log(err)); 
     }
 
     
