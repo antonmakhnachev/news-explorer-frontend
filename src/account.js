@@ -3,10 +3,7 @@ import './account.css';
 import {ApiMyServer} from '../scripts/apimyserver.js';
 import {News} from '../scripts/news.js';
 import {NewsList} from '../scripts/newslist.js';
-
-
-console.log('dfdfd');
-
+import {DisplayControl} from '../scripts/displayControl.js'
 
 (function (){
     const page = document.querySelector('.page');
@@ -29,7 +26,8 @@ console.log('dfdfd');
         }
     });
     const news = new News(apiMyServer);
-    const newsList = new NewsList(newsPlace, news, apiMyServer);   
+    const newsList = new NewsList(newsPlace, news, apiMyServer);
+    const displayControl = new DisplayControl();   
 
     const buttonAuth = document.querySelector('.header__button');    
     const buttonMobileMenu = document.querySelector('.header__mobile-icon');
@@ -61,26 +59,62 @@ console.log('dfdfd');
         }        
     })
 
+    // массив с ключевыми словами
+    function uniqueKeywords (newsData) {
+        const arr = new Array();      
+
+        for (const news of newsData) {
+            arr.push(news.keyword)
+        }        
+        return Array.from(new Set(arr));
+    }
 
     // загрузка сохраненных новостей
-    if (isAuth) {
+    if (isAuth) {        
         news.getSavedNews()
             .then((newsData) => {
                 const pageName = document.querySelector('.page').getAttribute('name');
-                console.log(newsData.data)
+                const info = document.querySelector('.info');
+                const infoKeywords = document.createElement('p')
+                const uniqueWords = uniqueKeywords(newsData.data);
+                const logoutIcon = document.createElement('img');
+                const buttonAuth = document.getElementById('button_auth');
+                const userName = JSON.parse(isAuth).userName;
+                const infoTitle = document.querySelector('.info__title');
+                const savedNews = document.querySelector('.saved-news');              
+                
+                logoutIcon.classList.add('header__logout-img');
+                logoutIcon.src = '../images/logout.png'
+
+                buttonAuth.textContent = userName;        
+                buttonAuth.appendChild(logoutIcon);
+                if (newsData.data.length === 0) {
+                    infoTitle.textContent = `${userName}, у вас нет сохранённых статей`
+                    savedNews.classList.remove('saved-news_is-opened');
+                } else {
+                    if (uniqueWords.length <= 3) {
+                        infoKeywords.innerHTML = `<p class="info__keyword">По ключевым словам: <span class="info__keyword-text">${uniqueWords}</span></p>`
+                        info.appendChild(infoKeywords);                   
+                    } else {
+                        const uniqueWordsPart = uniqueWords.slice(0, 2)
+                        infoKeywords.innerHTML = `<p class="info__keyword">По ключевым словам: <span class="info__keyword-text">${uniqueWordsPart}</span> и <span class="info__keyword-text">${uniqueWords.length - uniqueWordsPart.length} другим</span></p>`
+                        info.appendChild(infoKeywords);                    
+                    }
+
+                    infoTitle.textContent = `${userName}, у вас ${newsData.data.length} сохранённых статей`
+                    savedNews.classList.add('saved-news_is-opened');
+                }
                 newsList.renderNews(newsData.data, pageName);
-            })
+            })           
             .catch(err => console.log(err));
-    }
-    
+        
 
-    
+        
 
-    
+        
+        
 
-
-
-    
+    }  
 
 
     

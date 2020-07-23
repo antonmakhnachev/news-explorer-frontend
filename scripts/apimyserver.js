@@ -55,7 +55,7 @@ export class ApiMyServer {
             credentials: 'include',
             headers: this.options.headers,
             body: JSON.stringify({
-                keyword: keyword,
+                keyword: keyword.value,
                 title: news.querySelector('.news__title').textContent,
                 text: news.querySelector('.news__text').textContent,
                 date: news.querySelector('.news__date').textContent.toString(),

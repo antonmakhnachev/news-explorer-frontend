@@ -14,7 +14,8 @@ export class News {
 
 
 
-    createNews(news, pageName) {        
+    createNews(news, pageName) {
+        const isAuth = localStorage.getItem('user');
 
         const newsCard = document.createElement('div');
         const newsImg = document.createElement('img');
@@ -58,6 +59,10 @@ export class News {
                 newsCard.appendChild(favorPlace);
                 favorPlace.appendChild(newsFavor);
                 favorPlace.appendChild(authErr);
+
+                // if (!isAuth) {
+                //     newsFavor.disabled = 'disabled';
+                // }
                                
 
                 newsImg.src = news.urlToImage;        
@@ -99,15 +104,17 @@ export class News {
         const news = event.target.closest('.news__card');
         const newsFavor = news.querySelector('.news__favor');
         const authErr = news.querySelector('.news__auth-err');
-        const keyword = document.querySelector('.search__input');
+        const keyword = document.getElementById('keyword');
         const isAuth = localStorage.getItem('user');
 
-        if (!isAuth) {
-            newsFavor.disabled = true;
-            authErr.classList.add('news__auth-err_is-opened');
+        console.log(isAuth)
 
+        if (!isAuth) {            
+            authErr.classList.add('news__auth-err_is-opened');
             return;
-        }
+        } else {
+            authErr.classList.remove('news__auth-err_is-opened');
+        };
         
 
         if (newsFavor.classList.contains('news__favor_is-favor')) {
@@ -118,11 +125,10 @@ export class News {
                 .catch(err => console.log(err))
         } else {
             newsFavor.classList.add('news__favor_is-favor')
-            this.apiMyServer.saveNews(news, keyword.value)
+            this.apiMyServer.saveNews(news, keyword)
                 .then((res) => {
                     const newsId = res.data._id;
-                    news.setAttribute('id', newsId);
-                    // console.log(news);
+                    news.setAttribute('id', newsId);                    
                 })
                 .catch(err => console.log(err));
         };        

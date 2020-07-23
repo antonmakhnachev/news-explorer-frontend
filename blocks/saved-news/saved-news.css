@@ -1,7 +1,11 @@
 .saved-news {
     width: 100%;
     background-color: #F5F6F7;
-    /* margin-top: 64px;     */
-    border: 1px  solid red;
-    /* transparent */
+    box-sizing: border-box;   
+    border: 1px  solid transparent;   
+    display: none;
+}
+
+.saved-news_is-opened {
+    display: block;
 }

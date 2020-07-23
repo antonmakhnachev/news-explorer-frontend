@@ -1,6 +1,5 @@
 import './index.css';
 
-
 import {Popup} from '../scripts/popup.js';
 import {FormValidator} from '../scripts/formvalidator.js';
 import {ApiGetNews} from '../scripts/apigetnews.js';
@@ -8,11 +7,6 @@ import {ApiMyServer} from '../scripts/apimyserver.js';
 import {News} from '../scripts/news.js';
 import {NewsList} from '../scripts/newslist.js';
 import {DisplayControl} from '../scripts/displayControl.js'
-
-
-
-console.log('dfdfd');
-
 
 (function (){
     const page = document.querySelector('.page');

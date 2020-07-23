@@ -32,6 +32,8 @@ export class NewsList {
 
     showMoreNews() {
         const cardList = document.querySelectorAll('.news__card');
+        const searchResultButton = document.querySelector('.search-result__button');
+        let cardListIsOpened;
         let i = 0;
 
         for (const card of cardList) {
@@ -39,6 +41,11 @@ export class NewsList {
                 if (i < 3) {
                     card.classList.add('news__card_is-opened');
                     i++;
+                    cardListIsOpened = document.querySelectorAll('.news__card_is-opened')
+                    if (cardList.length === cardListIsOpened.length) {
+                        searchResultButton.classList.remove('search-result__button_is-opened');
+                    }
+
                 };
             };                
         };        
