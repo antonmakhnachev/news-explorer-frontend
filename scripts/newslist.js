@@ -37,14 +37,11 @@ export class NewsList {
             case 'account':
                 newsElement
                     .querySelector('.news__del')
-                    .addEventListener('click', this.news.deleteSavedNews.bind(this))
-                    // () => {
-                    //     this.news.deleteSavedNews.bind(this)
-                    //         .then(() => {
-                    //             console.log(event.target);
-                    //         })
-                    //         .catch(err => console.log(err));
-                    // });
+                    .addEventListener('click', () =>{
+                        this.news.deleteSavedNews.bind(this)
+                        
+                    }) 
+                    
             break;
         };
             
