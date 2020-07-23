@@ -2,7 +2,7 @@
 export class News {
     constructor(mainApi) {
         this.mainApi = mainApi;        
-    }
+    };
 
     _getResponseData(res) {
         if (!res.ok) {
@@ -12,9 +12,7 @@ export class News {
         return res.json();
     };
 
-    createNews(news, pageName) {
-        //const userAuth = this.getUserAuth();
-        
+    createNews(news, pageName) {      
 
         const newsCard = document.createElement('div');
         const newsImg = document.createElement('img');
@@ -30,8 +28,6 @@ export class News {
         const newsGroupName = document.createElement('div');
         const newsGroupText = document.createElement('p');
 
-
-
         newsCard.classList.add('news__card');
         newsImg.classList.add('news__img');
         newsFavor.classList.add('news__favor');
@@ -45,7 +41,6 @@ export class News {
         newsDelIcon.classList.add('news__del-icon');
         newsGroupName.classList.add('news__group-name');
         newsGroupText.classList.add('news__group-text');
-
 
         newsCard.appendChild(newsImg);        
         newsCard.appendChild(newsDate);
@@ -90,18 +85,14 @@ export class News {
         newsSource.target = '_blank';
 
         return newsCard;
-    };
+    };    
 
     save(event) {
         const news = event.target.closest('.news__card');
         const newsFavor = news.querySelector('.news__favor');
         const authErr = news.querySelector('.news__auth-err');
         const keyword = document.getElementById('keyword');
-        const userAuth = JSON.parse(localStorage.getItem('user'));
-
-        console.log(userAuth)
-
-        
+        const userAuth = JSON.parse(localStorage.getItem('user'));       
 
         if (!userAuth) {            
             authErr.classList.add('news__auth-err_is-opened');
@@ -119,10 +110,9 @@ export class News {
                 .then((res) => console.log(res))
                 .catch(err => console.log(err))
         } else {
-            newsFavor.classList.add('news__favor_is-favor')
+            newsFavor.classList.add('news__favor_is-favor');
             this.mainApi.saveNews(news, keyword)
-                .then((res) => {
-                    //const newsId = res.data._id;
+                .then((res) => {                    
                     news.setAttribute('id', res.data._id);                    
                 })
                 .catch(err => console.log(err));
@@ -130,13 +120,12 @@ export class News {
     };    
 
     delete(event) {
-        const newsId = event.target.closest('.news__card').id;        
+        const newsId = event.target.closest('.news__card').id;            
         this.mainApi.deleteNews(newsId)
             .then(() => {
-                document.getElementById(newsId).remove();                
-            })          
-            .catch(err => console.log(err)); 
-    };
-
-    
-}
+                document.getElementById(newsId).remove();
+            })
+            .catch(err => console.log(err))
+    };    
+};
+  

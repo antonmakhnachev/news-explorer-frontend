@@ -45,6 +45,7 @@ export class DisplayControl {
         logoutIcon.remove();       
 
         localStorage.removeItem('user');
+        
     };
 
     mobileMenu(buttonMobileMenu) {
@@ -88,8 +89,7 @@ export class DisplayControl {
     updateArticlesPage(newsData, uniqueKeywords, userAuth) {
         const pageName = document.querySelector('.page').getAttribute('name');
         const info = document.querySelector('.info');
-        const infoKeywords = document.createElement('p')
-        //const uniqueWords = uniqueKeywords(newsData.data);
+        const infoKeywords = document.createElement('p');        
         const logoutIcon = document.createElement('img');
         const buttonAuth = document.getElementById('button_auth');
         const userName = userAuth.userName;

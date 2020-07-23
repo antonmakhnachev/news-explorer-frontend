@@ -33,12 +33,10 @@ import { getUserAuth } from './js/utils/get-user-auth.js';
     const popup = new Popup(mainApi);
     const formValidator = new FormValidator();   
     const news = new News(mainApi);
-    const newsList = new NewsList(newsPlace, news);   
-    const displayControl = new DisplayControl(popup);    
+    const newsList = new NewsList(newsPlace, news, mainApi);   
+    const displayControl = new DisplayControl(popup);
 
     
-
-
     // открытие формы авторизации
     buttonAuth.addEventListener('click', () => {
         const userAuth = getUserAuth();  
@@ -168,7 +166,9 @@ import { getUserAuth } from './js/utils/get-user-auth.js';
     
     buttonMobileMenu.addEventListener('click', () => {
         displayControl.mobileMenu(buttonMobileMenu);        
-    });    
+    });
+    
+    
 
     // показ страницы для авториизованных пользователей при перезагрузке страницы
     if (localStorage.getItem('user')) {

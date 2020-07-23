@@ -67,7 +67,8 @@ export class MainApi {
     
     getSavedNews() {
         return fetch(`${this.options.baseUrl}/articles`, {            
-            credentials: 'include'
+            credentials: 'include',
+            headers: this.options.headers
         })
         .then(res => this._getResponseData(res))          
         .catch(err => console.log(err));

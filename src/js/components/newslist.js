@@ -1,8 +1,8 @@
 export class NewsList {
-    constructor(container, news) {
+    constructor(container, news, mainApi) {
         this.container = container;
         this.news = news;
-        
+        this.mainApi = mainApi;        
     };
 
     addNews(newsData, pageName) {
