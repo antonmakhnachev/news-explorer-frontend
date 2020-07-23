@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Diploma work of the Yandex.Praktikum">
-    <link rel="stylesheet" href="main.88665f40b405fe78243d.css">    
-    <!-- main.88665f40b405fe78243d.css -->
+    <link rel="stylesheet" href="main.b3352e36d8781dda8a69.css">    
+    <!-- main.b3352e36d8781dda8a69.css -->
     <title>News-Explorer</title>    
 </head>
-<body class="page">
+<body class="page" name="main">
     <section class="main">
         <header class="header ">            
             <a href="./index.html" class="header__site-name">NewsExplorer</a>
@@ -17,11 +17,9 @@
             <div class="header__menu-mobile ">                
                 <div class="header__menu">
                     <a href="./index.html" class="menu__text is-auth">Главная</a>
-                    <a id="savedNews" href="./account.html" class="menu__text menu__text-auth" target="_blank">Сохраненные статьи</a>
+                    <a id="savedNews" href="./account.html" class="menu__text menu__text-auth">Сохраненные статьи</a>
                 </div>         
-                <button class="header__button button" id="button_auth">Авторизоваться
-                    <img class="header__logout-img" id="logoutImg" src="./images/logout_white.png">
-                </button>
+                <button class="header__button button" id="button_auth">Авторизоваться</button>
             </div>
         </header>
 
@@ -46,11 +44,12 @@
         <h2 class="search-result__title">Результаты поиска</h2>
         <div class="news">
 
-            <!-- <div class="news__card">                
-                <img class="news__img" src="../images/card/cardImg.png">
-                <div class="news__favor">
-                    <img class="news__favor-icon" src="../images/icon/bookmark.png">
-                </div>
+            <!-- <div class="news__card news__card_is-opened">                
+                <img class="news__img" src="../images/cardImg.png">
+                <div class="news__favor-place">                    
+                    <button class="news__favor" disabled></button>
+                    <p class="news__auth-err">Войдите, чтобы сохранять статьи</p>
+                </div>               
                 <p class="news__date">2 августа, 2019</p>
                 <h3 class="news__title">Национальное достояние – парки</h3>
                 <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
@@ -58,7 +57,7 @@
             </div>           -->
 
         </div>
-        <button type class="search-result__button">Показать еще</button>
+        <button type class="search-result__button search-result__button_is-opened">Показать еще</button>
     </section>
 
     <section class="about">
@@ -138,6 +137,6 @@
         </div>
     </footer>
 
-    <script type="module" src="main.8768f9a38c7ac7726e5f.js"></script>    
+    <script type="module" src="main.ab8bf92fa0798e3c6117.js"></script>    
 </body>
 </html>
