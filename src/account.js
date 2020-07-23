@@ -11,6 +11,7 @@ console.log('dfdfd');
 (function (){
     const page = document.querySelector('.page');
     const newsPlace = document.querySelector('.news');
+    const isAuth = localStorage.getItem('user');
 
     
 
@@ -62,13 +63,16 @@ console.log('dfdfd');
 
 
     // загрузка сохраненных новостей
-    news.getSavedNews()
-        .then((newsData) => {
-            const pageName = document.querySelector('.page').getAttribute('name');
-            console.log(newsData.data)
-            newsList.renderNews(newsData.data, pageName);
-        })
-        .catch(err => console.log(err));
+    if (isAuth) {
+        news.getSavedNews()
+            .then((newsData) => {
+                const pageName = document.querySelector('.page').getAttribute('name');
+                console.log(newsData.data)
+                newsList.renderNews(newsData.data, pageName);
+            })
+            .catch(err => console.log(err));
+    }
+    
 
     
 

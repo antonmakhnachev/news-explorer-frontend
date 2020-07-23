@@ -7,8 +7,8 @@ import {ApiGetNews} from '../scripts/apigetnews.js';
 import {ApiMyServer} from '../scripts/apimyserver.js';
 import {News} from '../scripts/news.js';
 import {NewsList} from '../scripts/newslist.js';
-// import {User} from '../scripts/user.js';
 import {DisplayControl} from '../scripts/displayControl.js'
+
 
 
 console.log('dfdfd');
@@ -33,9 +33,7 @@ console.log('dfdfd');
     
 
     const popup = new Popup();
-    const formValidator = new FormValidator();
-    
-    
+    const formValidator = new FormValidator();   
     const apiGetNews = new ApiGetNews ({
         baseUrl: serverNews,
         apiKey: apiKey,
@@ -43,7 +41,6 @@ console.log('dfdfd');
         to: new Date(),
         pageSize: 100
     });
-
     const apiMyServer = new ApiMyServer({
         baseUrl: server,
         headers: {
@@ -51,10 +48,9 @@ console.log('dfdfd');
         }
     });
     const news = new News(apiMyServer);
-    const newsList = new NewsList(newsPlace, news, apiMyServer);
+    const newsList = new NewsList(newsPlace, news, apiMyServer);   
+    const displayControl = new DisplayControl(popup);
     
-    // const user = new User(apiMyServer);
-    const displayControl = new DisplayControl(popup)
 
     const buttonAuth = document.getElementById('button_auth');
     const buttonClose = document.querySelectorAll('.popup__close');
@@ -80,13 +76,7 @@ console.log('dfdfd');
         } else {
             popup.control(formAuth.closest('.popup'));
             popup.clearErrMessages(errMessagesList);
-        }
-
-        // popup.control(formAuth.closest('.popup'));
-        // popup.clearErrMessages(errMessagesList);
-
-        
-        // formAuth.reset();
+        }        
     });
 
     // переход между формами по ссылке

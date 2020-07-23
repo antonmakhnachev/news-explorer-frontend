@@ -1,0 +1,7 @@
+.news__favor-place {    
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: row-reverse;
+}
