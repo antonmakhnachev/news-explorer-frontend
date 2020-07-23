@@ -1,0 +1,29 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;    
+    background-image: url(../../images/georgia-de-lotz.png);   
+    background-size: cover;
+    background-position: center;
+    /* max-width: 1440px;     */
+}
+
+.main.white-theme {
+    background-color: #ffffff;
+    color: #000000;
+    background-image: none;
+}
+
+.main.page-account {
+    display: block;
+}
+
+/* @media screen and (max-width: 425px) {
+    .main {
+        width: 426px;
+        background-size: cover;
+        background-position: center;
+    }
+} */

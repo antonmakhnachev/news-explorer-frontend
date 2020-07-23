@@ -1,0 +1,36 @@
+.header__site-name {
+    display: block;
+    font-family: "Roboto Slab";
+    font-size: 20px;
+    line-height: 24px;    
+    margin-left: 104px;    
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header__site-name.white-theme {
+    color: #000000;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .header__site-name {
+        font-size: 20px;
+        margin: 22px 0 18px 40px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .header__site-name {
+        font-size: 16px;
+        margin: 16px 0 16px 16px;
+        grid-area: sn;
+        grid-column-start: 1;
+        grid-column-end: 1;
+    }
+
+    .header__site-name.menu_is-opened {
+        color: #ffffff;
+    }
+
+
+}

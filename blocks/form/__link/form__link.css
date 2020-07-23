@@ -1,0 +1,9 @@
+.form__link {
+    color:#2F71E5;
+    
+    cursor: pointer;
+}
+
+.form__link:hover {
+    text-decoration: underline;
+}

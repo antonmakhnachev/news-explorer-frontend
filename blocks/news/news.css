@@ -1,0 +1,44 @@
+@import url("./__card/news__card.css");
+@import url("./__date/news__date.css");
+@import url("./__img/news__img.css");
+@import url("./__source/news__source.css");
+@import url("./__text/news__text.css");
+@import url("./__title/news__title.css");
+@import url("./__group-name/news__group-name.css");
+@import url("./__group-text/news__group-text.css");
+@import url("./__del/news__del.css");
+@import url("./__favor/news__favor.css");
+@import url("./__auth-err/news__auth-err.css");
+@import url("./__favor-place/news__favor-place.css");
+
+.news {
+    width: calc(100% - 208px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;    
+    margin: 64px 104px 0 104px;    
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .news {
+        grid-template-columns: repeat(2, 1fr);        
+    }    
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .news {
+        width: calc(100% - 80px);
+        grid-template-columns: repeat(3, 1fr);
+        margin: 32px 40px 0 40px;
+
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .news {
+        grid-template-columns: repeat(1, 1fr);
+        margin: 24px 16px 0 16px;
+        width: calc(100% - 32px);
+    }
+}

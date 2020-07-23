@@ -1,0 +1,12 @@
+.msg__link {
+    display: block;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 14px 0 51px 36px;
+    text-decoration: none;
+    color: #2f71e5;    
+}
+
+.msg__link:hover {
+    cursor: pointer;
+}

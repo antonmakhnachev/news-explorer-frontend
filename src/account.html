@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Diploma work of the Yandex.Praktikum">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.account.css %>">    
+    <title>News-Explorer</title>    
+</head>
+<body class="page" name="account">
+    <section class="main page-account white-theme">
+        <header class="header white-theme ">            
+            <a href="./index.html" class="header__site-name white-theme">NewsExplorer</a>
+            <img class="header__mobile-icon" src="<%=require('../images/menu_open_white_theme.png').default%>">
+            <div class="header__menu-mobile ">                
+                <div class="header__menu">
+                    <a href="./index.html" class="menu__text white-theme is-auth">Главная</a>
+                    <a href="./pages/account.html" class="menu__text white-theme is-auth">Сохраненные статьи</a>
+                </div>         
+                <button class="header__button button white-theme">
+                    <!-- <img class="header__logout-img header__logout-img_is-opened" src="<%=require('../images/logout.png').default%>"> -->
+                </button>
+            </div>
+        </header>
+
+        <div class="info">
+            <p class="info__text">Сохранённые статьи</p>
+            <h2 class="info__title">Грета, у вас 5 сохранённых статей</h2>
+            <p class="info__keyword">По ключевым словам: Природа, Тайга и 2 другим</p>
+        </div>         
+    </section>    
+
+    <section class="saved-news">        
+        <div class="news">
+
+            <!-- <div class="news__card news__card_is-opened">                
+                <img class="news__img" src="<%=require('../images/cardImg.png').default%>">
+                <button class="news__del"></button>                
+                <div class="news__group-name">
+                    <p class="news__group-text">Природа</p>
+                </div>
+                <p class="news__date">2 августа, 2019</p>
+                <h3 class="news__title">Национальное достояние – парки</h3>
+                <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                <p class="news__source">Лента.ру</p>
+            </div>           -->
+
+        </div>       
+    </section>
+    
+    <footer class="footer">
+        <p class="footer__copyright">&copy 2020 Supersite, Powered by News API</p>
+        <div class="footer__menu">
+            <a href="./index.html" class="footer__text">Главная</a>
+            <a href="https://praktikum.yandex.ru/" class="footer__text">Яндекс.Практикум</a>
+        </div>
+        <div class="footer__social">
+            <a href="https://github.com/antonmakhnachev"><img class="footer__icon" src="<%=require('../images/logo-github.png').default%>" alt="Ошибка загрузки изображения"></a>
+            <a href="https://www.facebook.com/"><img class="footer__icon" src="<%=require('../images/logo-fb.png').default%>" alt="Ошибка загрузки изображения"></a>
+        </div>
+    </footer>
+
+    <script type="module" src="<%= htmlWebpackPlugin.files.chunks.account.entry %>"></script>
+</body>
+</html>

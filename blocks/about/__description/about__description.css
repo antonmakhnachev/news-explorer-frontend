@@ -1,0 +1,17 @@
+.about__description{
+    margin-top: 0;
+    margin-right: 216px;    
+}
+
+@media screen and (max-width: 1024px) {
+    .about__description {
+        margin-right: 106px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .about__description {
+        margin: 0 40px 0 32px;
+    }
+}

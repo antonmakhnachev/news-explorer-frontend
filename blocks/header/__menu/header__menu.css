@@ -1,0 +1,19 @@
+@import url("./menu__text.css");
+
+.header__menu {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;   
+}
+
+
+
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .header__menu {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-self: start;
+        margin-left: 16px;
+    }
+}

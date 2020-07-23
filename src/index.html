@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Diploma work of the Yandex.Praktikum">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">    
+    <!-- <%=htmlWebpackPlugin.files.chunks.main.css%> -->
+    <title>News-Explorer</title>    
+</head>
+<body class="page" name="main">
+    <section class="main">
+        <header class="header ">            
+            <a href="./index.html" class="header__site-name">NewsExplorer</a>
+            <img class="header__mobile-icon" src="<%=require('../images/menu_mobile.png').default%>" alt="Ошибка загрузки изображения">
+            <div class="header__menu-mobile ">                
+                <div class="header__menu">
+                    <a href="./index.html" class="menu__text is-auth">Главная</a>
+                    <a id="savedNews" href="./account.html" class="menu__text menu__text-auth" target="_blank">Сохраненные статьи</a>
+                </div>         
+                <button class="header__button button" id="button_auth">Авторизоваться
+                    <!-- <img class="header__logout-img" id="logoutImg" src="<%=require('../images/logout_white.png').default%>"> -->
+                </button>
+            </div>
+        </header>
+
+        <div class="search">
+            <h1 class="search__title">Что в мире творится?</h1>
+            <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
+            
+            <form class="search__form" name="form_search">
+                <input id="keyword" class="search__input" placeholder="Введите тему новости">
+                <button id="button_search" type class="search__button button" name="button_submit">Искать</button>
+                <p id="keyword_err" class="search__err"></p>
+            </form>           
+            
+        </div>
+    </section>
+
+    <div class="preloader">
+        <i class="circle-preloader"></i>
+    </div>    
+
+    <section class="search-result search-result_is-opened">
+        <h2 class="search-result__title">Результаты поиска</h2>
+        <div class="news">
+
+            <div class="news__card news__card_is-opened">                
+                <img class="news__img" src="../images/cardImg.png">
+                <div class="news__favor-place">                    
+                    <button class="news__favor"></button>
+                    <p class="news__auth-err">Войдите, чтобы сохранять статьи</p>
+                </div>
+                
+                <!-- <div class="news__favor">
+                    <img class="news__favor-icon" src="../images/bookmark.png">
+                </div> -->
+                <p class="news__date">2 августа, 2019</p>
+                <h3 class="news__title">Национальное достояние – парки</h3>
+                <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                <a class="news__source">Лента.ру</a>
+            </div>          
+
+        </div>
+        <button type class="search-result__button">Показать еще</button>
+    </section>
+
+    <section class="about">
+        <img class="about__image" src="<%=require('../images/image-03.png').default%>" alt="Ошибка загрузки изображения">
+        <div class="about__description">
+            <h2 class="about__title">Об авторе</h2>
+            <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+            <p class="about__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+        </div>
+    </section>
+
+    <!-- Форма авторизации -->
+    <div class="popup" id="popup_form_auth">
+        <div class="popup__content">
+            <img src="<%=require('../images/close.png').default%>" alt="Ошибка загрузки изображения" class="popup__close">
+            <form class="form" name="form_auth">
+                <h2 class="form__title">Вход</h2>
+
+                <p class="form__input-name">Email</p>
+                <input id="auth_email" type="email" class="form__input" placeholder="Введите почту" minlength="2" required>
+                <p class="form__err" id="auth_email_err">Сообщение об ошибке</p>
+
+                <p class="form__input-name">Пароль</p>
+                <input id="auth_pass" type="password" class="form__input" placeholder="Введите пароль" minlength="8" required>
+                <p class="form__err" id="auth_pass_err">Сообщение об ошибке</p>
+
+                <button type class="form__button" name="button_submit" disabled>Войти</button>
+                <p class="form__text">или <span class="form__link" id="link_open_reg">Зарегистрироваться</span></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Форма регистрации -->
+    <div class="popup" id="popup_form_reg">
+        <div class="popup__content">
+            <img src="<%=require('../images/close.png').default%>" alt="Ошибка загрузки изображения" class="popup__close">
+            <form class="form" name="form_reg">
+                <h2 class="form__title">Регистрация</h2>
+
+                <p class="form__input-name">Email</p>
+                <input id="reg_email" type="email" class="form__input" placeholder="Введите почту" minlength="2" required>
+                <p id="reg_email_err" class="form__err">Сообщение об ошибке</p>
+
+                <p class="form__input-name">Пароль</p>
+                <input id="reg_pass" type="password" class="form__input" placeholder="Введите пароль" minlength="8" required>
+                <p id="reg_pass_err" class="form__err">Сообщение об ошибке</p>
+
+                <p class="form__input-name">Имя</p>
+                <input id="reg_name" type="text" class="form__input" placeholder="Введите своё имя" minlength="2" required>
+                <p id="reg_name_err" class="form__err">Сообщение об ошибке</p>
+                
+                <p class="form__err form__err-reg">Такой пользователь уже есть</p>
+                <button type class="form__button" name="button_submit" disabled>Зарегистрироваться</button>
+                
+                <p class="form__text">или <span class="form__link" id="link_open_auth">Войти</span></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup" id="msg_create_status">
+        <div class=popup__content>
+            <img src="<%=require('../images/close.png').default%>" alt="Ошибка загрузки изображения" class="popup__close">
+            <p class="msg__text">Пользователь успешно зарегистрирован!</p>
+            <a href="" class="msg__link">Выполнить вход</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer__copyright">&copy 2020 Supersite, Powered by News API</p>
+        <div class="footer__menu">
+            <a href="./index.html" class="footer__text">Главная</a>
+            <a href="https://praktikum.yandex.ru/" class="footer__text">Яндекс.Практикум</a>
+        </div>
+        <div class="footer__social">
+            <a href="https://github.com/antonmakhnachev" target="_blank"><img class="footer__icon" src="<%=require('../images/logo-github.png').default%>" alt="Ошибка загрузки изображения"></a>
+            <a href="https://www.facebook.com/" target="_blank"><img class="footer__icon" src="<%=require('../images/logo-fb.png').default%>" alt="Ошибка загрузки изображения"></a>
+        </div>
+    </footer>
+
+    <script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>    
+</body>
+</html>

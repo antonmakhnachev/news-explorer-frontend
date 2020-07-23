@@ -1,0 +1,10 @@
+.footer__icon {
+    margin-left: 26px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .footer__icon {
+        margin-left: 27px;
+    }
+}

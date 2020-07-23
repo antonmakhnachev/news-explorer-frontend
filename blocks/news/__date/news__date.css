@@ -1,0 +1,13 @@
+.news__date {
+    font-family: "Source Sans Pro";
+    font-size: 18px;
+    line-height: 24px;
+    color: #B6BCBF;
+    margin: 20px 0 0 24px;
+}
+
+@media screen and (max-width: 768px) {
+    .news__date {
+        
+    }
+}

@@ -1,0 +1,18 @@
+.news__img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;    
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .news__img {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+    .news__img {
+        width: 100%;
+    }
+}
