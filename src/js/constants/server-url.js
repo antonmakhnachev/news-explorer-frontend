@@ -1,0 +1,2 @@
+export const URL_MAIN_SERVER = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://api.newsexplorer.gq';
+export const URL_NEWS_SERVER = process.env.NODE_ENV === 'development' ? 'https://newsapi.org/v2/everything?' : 'https://praktikum.tk/news/v2/everything?';

@@ -1,5 +1,5 @@
 .search-result__button {
-    display: block;
+    display: none;
     width: 288px;
     height: 64px;
     border-radius: 100px;
@@ -9,6 +9,10 @@
     line-height: 24px;
     border: none;
 
+}
+
+.search-result__button_is-opened {
+    display: block;
 }
 
 .search-result__button:hover {

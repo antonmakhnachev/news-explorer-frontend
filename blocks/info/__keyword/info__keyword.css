@@ -5,6 +5,10 @@
     color: #1A1B22;
 }
 
+.info__keyword-text {
+    font-weight: bold;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .info__keyword {
         font-size: 14px;

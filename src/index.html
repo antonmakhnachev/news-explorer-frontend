@@ -17,11 +17,9 @@
             <div class="header__menu-mobile ">                
                 <div class="header__menu">
                     <a href="./index.html" class="menu__text is-auth">Главная</a>
-                    <a id="savedNews" href="./account.html" class="menu__text menu__text-auth" target="_blank">Сохраненные статьи</a>
+                    <a id="savedNews" href="./account.html" class="menu__text menu__text-auth">Сохраненные статьи</a>
                 </div>         
-                <button class="header__button button" id="button_auth">Авторизоваться
-                    <!-- <img class="header__logout-img" id="logoutImg" src="<%=require('../images/logout_white.png').default%>"> -->
-                </button>
+                <button class="header__button button" id="button_auth">Авторизоваться</button>
             </div>
         </header>
 
@@ -42,28 +40,24 @@
         <i class="circle-preloader"></i>
     </div>    
 
-    <section class="search-result search-result_is-opened">
+    <section class="search-result">
         <h2 class="search-result__title">Результаты поиска</h2>
         <div class="news">
 
-            <div class="news__card news__card_is-opened">                
+            <!-- <div class="news__card news__card_is-opened">                
                 <img class="news__img" src="../images/cardImg.png">
                 <div class="news__favor-place">                    
-                    <button class="news__favor"></button>
+                    <button class="news__favor" disabled></button>
                     <p class="news__auth-err">Войдите, чтобы сохранять статьи</p>
-                </div>
-                
-                <!-- <div class="news__favor">
-                    <img class="news__favor-icon" src="../images/bookmark.png">
-                </div> -->
+                </div>               
                 <p class="news__date">2 августа, 2019</p>
                 <h3 class="news__title">Национальное достояние – парки</h3>
                 <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
                 <a class="news__source">Лента.ру</a>
-            </div>          
+            </div>           -->
 
         </div>
-        <button type class="search-result__button">Показать еще</button>
+        <button type class="search-result__button search-result__button_is-opened">Показать еще</button>
     </section>
 
     <section class="about">

@@ -1,7 +1,8 @@
+//import { getUserAuth } from '../utils/get-user-auth.js';
 export class News {
-    constructor(apiMyServer) {
-        this.apiMyServer = apiMyServer;
-    }
+    constructor(mainApi) {
+        this.mainApi = mainApi;        
+    };
 
     _getResponseData(res) {
         if (!res.ok) {
@@ -11,10 +12,7 @@ export class News {
         return res.json();
     };
 
-
-
-
-    createNews(news, pageName) {        
+    createNews(news, pageName) {      
 
         const newsCard = document.createElement('div');
         const newsImg = document.createElement('img');
@@ -30,8 +28,6 @@ export class News {
         const newsGroupName = document.createElement('div');
         const newsGroupText = document.createElement('p');
 
-
-
         newsCard.classList.add('news__card');
         newsImg.classList.add('news__img');
         newsFavor.classList.add('news__favor');
@@ -46,7 +42,6 @@ export class News {
         newsGroupName.classList.add('news__group-name');
         newsGroupText.classList.add('news__group-text');
 
-
         newsCard.appendChild(newsImg);        
         newsCard.appendChild(newsDate);
         newsCard.appendChild(newsTitle);
@@ -57,8 +52,7 @@ export class News {
             case 'main':
                 newsCard.appendChild(favorPlace);
                 favorPlace.appendChild(newsFavor);
-                favorPlace.appendChild(authErr);
-                               
+                favorPlace.appendChild(authErr);                             
 
                 newsImg.src = news.urlToImage;        
                 newsDate.textContent = new Date(news.publishedAt).toDateString();
@@ -71,8 +65,7 @@ export class News {
 
             case 'account':
                 newsCard.classList.add('news__card_is-opened');
-                newsCard.appendChild(newsDel);
-                // newsDel.appendChild(newsDelIcon);
+                newsCard.appendChild(newsDel);               
                 newsCard.appendChild(newsGroupName);
                 newsGroupName.appendChild(newsGroupText);
 
@@ -81,8 +74,7 @@ export class News {
                 newsTitle.textContent = news.title;
                 newsText.textContent = news.text;
                 newsSource.textContent = news.source;
-                newsSource.href = news.link;
-                // newsDelIcon.src = '../images/trash.png';
+                newsSource.href = news.link;                
                 newsGroupText.textContent = news.keyword;
 
                 newsCard.setAttribute('id', news._id);
@@ -93,57 +85,47 @@ export class News {
         newsSource.target = '_blank';
 
         return newsCard;
-    }
+    };    
 
     save(event) {
         const news = event.target.closest('.news__card');
         const newsFavor = news.querySelector('.news__favor');
         const authErr = news.querySelector('.news__auth-err');
-        const keyword = document.querySelector('.search__input');
-        const isAuth = localStorage.getItem('user');
+        const keyword = document.getElementById('keyword');
+        const userAuth = JSON.parse(localStorage.getItem('user'));       
 
-        if (!isAuth) {
-            newsFavor.disabled = true;
+        if (!userAuth) {            
             authErr.classList.add('news__auth-err_is-opened');
-
             return;
-        }
+        } else {
+            authErr.classList.remove('news__auth-err_is-opened');
+        };
         
 
         if (newsFavor.classList.contains('news__favor_is-favor')) {
             const newsId = news.getAttribute('id');            
-            newsFavor.classList.remove('news__favor_is-favor')
-            this.apiMyServer.deleteNews(newsId)
+            newsFavor.classList.remove('news__favor_is-favor');
+
+            this.mainApi.deleteNews(newsId)
                 .then((res) => console.log(res))
                 .catch(err => console.log(err))
         } else {
-            newsFavor.classList.add('news__favor_is-favor')
-            this.apiMyServer.saveNews(news, keyword.value)
-                .then((res) => {
-                    const newsId = res.data._id;
-                    news.setAttribute('id', newsId);
-                    // console.log(news);
+            newsFavor.classList.add('news__favor_is-favor');
+            this.mainApi.saveNews(news, keyword)
+                .then((res) => {                    
+                    news.setAttribute('id', res.data._id);                    
                 })
                 .catch(err => console.log(err));
         };        
-    };
+    };    
 
-    getSavedNews() {
-        return fetch(`${this.apiMyServer.options.baseUrl}/articles`, {            
-            credentials: 'include'
-        })
-        .then(res => this._getResponseData(res))          
-        .catch(err => console.log(err));
-    };
-
-    deleteSavedNews(event) {
-        const newsId = event.target.closest('.news__card').id;        
-        this.apiMyServer.deleteNews(newsId)
+    delete(event) {
+        const newsId = event.target.closest('.news__card').id;            
+        this.mainApi.deleteNews(newsId)
             .then(() => {
-                document.getElementById(newsId).remove();                
-            })          
-            .catch(err => console.log(err)); 
-    };
-
-    
-}
+                document.getElementById(newsId).remove();
+            })
+            .catch(err => console.log(err))
+    };    
+};
+  

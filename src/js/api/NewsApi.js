@@ -1,7 +1,7 @@
-export class ApiGetNews {
+export class NewsApi {
     constructor(options) {
         this.options = options;
-    }
+    };
 
     _getResponseData(res) {
         if (!res.ok) {
@@ -14,5 +14,5 @@ export class ApiGetNews {
     getNews(keyword) {
         return fetch(`${this.options.baseUrl}q=${keyword}&from=${this.options.from}&to=${this.options.to}&sortBy=publishedAt&apiKey=${this.options.apiKey}`)
         .then(res => this._getResponseData(res))
-    }
-}
+    };
+};
