@@ -1,8 +1,8 @@
 export class NewsList {
-    constructor(container, news, apiMyServer) {
+    constructor(container, news) {
         this.container = container;
         this.news = news;
-        this.apiMyServer = apiMyServer;
+        
     };
 
     addNews(newsData, pageName) {
@@ -18,7 +18,7 @@ export class NewsList {
             case 'account':
                 newsElement
                     .querySelector('.news__del')
-                    .addEventListener('click', this.news.deleteSavedNews.bind(this))                    
+                    .addEventListener('click', this.news.delete.bind(this))                    
             break;
         };      
     };

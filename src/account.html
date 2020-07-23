@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Diploma work of the Yandex.Praktikum">
-    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.account.css %>">    
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.articles.css %>">    
     <title>News-Explorer</title>    
 </head>
 <body class="page" name="account">
@@ -18,7 +18,7 @@
                     <a href="./index.html" class="menu__text white-theme is-auth">Главная</a>
                     <a href="./pages/account.html" class="menu__text white-theme is-auth">Сохраненные статьи</a>
                 </div>         
-                <button class="header__button button white-theme" id="button_auth"></button>
+                <button class="header__button button white-theme"></button>
             </div>
         </header>
 
@@ -58,6 +58,6 @@
         </div>
     </footer>
 
-    <script type="module" src="<%= htmlWebpackPlugin.files.chunks.account.entry %>"></script>
+    <script type="module" src="<%= htmlWebpackPlugin.files.chunks.articles.entry %>"></script>
 </body>
 </html>

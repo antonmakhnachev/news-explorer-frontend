@@ -1,4 +1,4 @@
-export class ApiMyServer {
+export class MainApi {
     constructor(options) {
         this.options = options;
     };
@@ -12,12 +12,6 @@ export class ApiMyServer {
     };
 
     createUser(userData) {
-        console.log({
-            email: userData.email,
-            password: userData.password,
-            name: userData.name,
-        })
-
         return fetch(`${this.options.baseUrl}/signup`, {
             method: 'POST',
             credentials: 'include',
@@ -32,11 +26,6 @@ export class ApiMyServer {
     };
 
     login(userData) {
-        console.log({
-            email: userData.email,
-            password: userData.password,            
-        })
-
         return fetch(`${this.options.baseUrl}/signin`, {
             method: 'POST',
             credentials: 'include',
@@ -74,11 +63,15 @@ export class ApiMyServer {
             headers: this.options.headers            
         })
         .then(res => this._getResponseData(res))
-    }
-
-
-
+    };
     
+    getSavedNews() {
+        return fetch(`${this.options.baseUrl}/articles`, {            
+            credentials: 'include'
+        })
+        .then(res => this._getResponseData(res))          
+        .catch(err => console.log(err));
+    };
 };
 
 

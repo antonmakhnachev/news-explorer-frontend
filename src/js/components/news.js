@@ -1,6 +1,7 @@
+//import { getUserAuth } from '../utils/get-user-auth.js';
 export class News {
-    constructor(apiMyServer) {
-        this.apiMyServer = apiMyServer;
+    constructor(mainApi) {
+        this.mainApi = mainApi;        
     }
 
     _getResponseData(res) {
@@ -11,11 +12,9 @@ export class News {
         return res.json();
     };
 
-
-
-
     createNews(news, pageName) {
-        const isAuth = localStorage.getItem('user');
+        //const userAuth = this.getUserAuth();
+        
 
         const newsCard = document.createElement('div');
         const newsImg = document.createElement('img');
@@ -58,12 +57,7 @@ export class News {
             case 'main':
                 newsCard.appendChild(favorPlace);
                 favorPlace.appendChild(newsFavor);
-                favorPlace.appendChild(authErr);
-
-                // if (!isAuth) {
-                //     newsFavor.disabled = 'disabled';
-                // }
-                               
+                favorPlace.appendChild(authErr);                             
 
                 newsImg.src = news.urlToImage;        
                 newsDate.textContent = new Date(news.publishedAt).toDateString();
@@ -76,8 +70,7 @@ export class News {
 
             case 'account':
                 newsCard.classList.add('news__card_is-opened');
-                newsCard.appendChild(newsDel);
-                // newsDel.appendChild(newsDelIcon);
+                newsCard.appendChild(newsDel);               
                 newsCard.appendChild(newsGroupName);
                 newsGroupName.appendChild(newsGroupText);
 
@@ -86,8 +79,7 @@ export class News {
                 newsTitle.textContent = news.title;
                 newsText.textContent = news.text;
                 newsSource.textContent = news.source;
-                newsSource.href = news.link;
-                // newsDelIcon.src = '../images/trash.png';
+                newsSource.href = news.link;                
                 newsGroupText.textContent = news.keyword;
 
                 newsCard.setAttribute('id', news._id);
@@ -98,18 +90,20 @@ export class News {
         newsSource.target = '_blank';
 
         return newsCard;
-    }
+    };
 
     save(event) {
         const news = event.target.closest('.news__card');
         const newsFavor = news.querySelector('.news__favor');
         const authErr = news.querySelector('.news__auth-err');
         const keyword = document.getElementById('keyword');
-        const isAuth = localStorage.getItem('user');
+        const userAuth = JSON.parse(localStorage.getItem('user'));
 
-        console.log(isAuth)
+        console.log(userAuth)
 
-        if (!isAuth) {            
+        
+
+        if (!userAuth) {            
             authErr.classList.add('news__auth-err_is-opened');
             return;
         } else {
@@ -119,32 +113,25 @@ export class News {
 
         if (newsFavor.classList.contains('news__favor_is-favor')) {
             const newsId = news.getAttribute('id');            
-            newsFavor.classList.remove('news__favor_is-favor')
-            this.apiMyServer.deleteNews(newsId)
+            newsFavor.classList.remove('news__favor_is-favor');
+
+            this.mainApi.deleteNews(newsId)
                 .then((res) => console.log(res))
                 .catch(err => console.log(err))
         } else {
             newsFavor.classList.add('news__favor_is-favor')
-            this.apiMyServer.saveNews(news, keyword)
+            this.mainApi.saveNews(news, keyword)
                 .then((res) => {
-                    const newsId = res.data._id;
-                    news.setAttribute('id', newsId);                    
+                    //const newsId = res.data._id;
+                    news.setAttribute('id', res.data._id);                    
                 })
                 .catch(err => console.log(err));
         };        
-    };
+    };    
 
-    getSavedNews() {
-        return fetch(`${this.apiMyServer.options.baseUrl}/articles`, {            
-            credentials: 'include'
-        })
-        .then(res => this._getResponseData(res))          
-        .catch(err => console.log(err));
-    };
-
-    deleteSavedNews(event) {
+    delete(event) {
         const newsId = event.target.closest('.news__card').id;        
-        this.apiMyServer.deleteNews(newsId)
+        this.mainApi.deleteNews(newsId)
             .then(() => {
                 document.getElementById(newsId).remove();                
             })          
